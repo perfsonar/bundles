@@ -9,7 +9,9 @@ Homepage: http://www.perfsonar.net/
 Package: perfsonar-tools
 Architecture: all
 Depends: bwctl-client, bwctl-server, ndt-client,
- owamp-client, owamp-server, nuttcp, iperf, iperf3, ${misc:Depends}
+ owamp-client, owamp-server, nuttcp, iperf, iperf3,
+ iputils-ping, iputils-tracepath, traceroute, paris-traceroute,
+ ${misc:Depends}
 Description: perfSONAR tools metapackage
  perfSONAR combines a number of measurement tools and services.
  .
