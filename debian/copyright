@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: perfsonar-tools
-Source: https://code.google.com/p/perfsonar-ps/
+Source: https://github.com/perfsonar/bundles
 
 Files: *
 Copyright: 2014 GEANT
