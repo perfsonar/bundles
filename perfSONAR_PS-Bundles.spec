@@ -13,26 +13,10 @@ BuildArch:		noarch
 %description
 Various bundles of the perfSONAR-PS Software
 
-%package Level1
-Summary:		pS-Performance Toolkit Bundle - Level 1
+%package TestPoint
+Summary:		pS-Performance Toolkit Bundle - minimal test end point
 Group:			Applications/Communications
-Requires:		bwctl-client
-Requires:		bwctl-server
-Requires:		ndt-client
-Requires:		owamp-client
-Requires:		owamp-server
-Requires:		nuttcp
-Requires:		iperf
-Requires:               iperf3
-Requires:		ntp
-Requires:		perl-perfSONAR_PS-LSRegistrationDaemon
-
-%description Level1
-The perfSONAR Toolkit - Level 1 Bundle
-
-%package Level2
-Summary:		pS-Performance Toolkit Bundle - Level 2
-Group:			Applications/Communications
+Requires:               Internet2-repo
 Requires:		bwctl-client
 Requires:		bwctl-server
 Requires:		ndt-client
@@ -44,28 +28,34 @@ Requires:               iperf3
 Requires:		ntp
 Requires:		perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:               perl-perfSONAR_PS-RegularTesting
-Requires:		perl-perfSONAR_PS-MeshConfig-Agent
+Requires:               perl-perfSONAR_PS-Toolkit-Install-Scripts
 
-%description Level2
-The perfSONAR Toolkit - Level 2 Bundle
+%description TestPoint
+The perfSONAR Toolkit - minimal test point bundle
+
+%package CentralManagement
+Summary:		pS-Performance Toolkit Bundle - Central Management
+Group:			Applications/Communications
+Requires:               Internet2-repo
+Requires:               datastax-repo
+Requires:		perl-perfSONAR_PS-MeshConfig-Agent
+Requires:               maddash
+Requires:               esmond
+
+%description CentralManagement
+The perfSONAR Toolkit - Central Management
 
 %post
 
 %files
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files Level1
+%files TestPoint
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files Level2
+%files CentralManagement
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
-* Wed Nov 12 2014 daldoyle@grnoc.iu.edu 3.4.0-1
-- Removed PingER, perfSONARBOUY, and TracerouteMA. Replaced with RegularTesting
-
-* Fri Mar 07 2014 aaron@internet2.edu 3.3.2-1
-- Fix a minor issue with the mesh configuration link
-
-* Thu Aug 01 2013 aaron@internet2.edu 3.3.1-1
-- Initial bundle release
+* Tue Mar 24 2015 sowmya@es.net
+- Testpoint and CentralManagement bundle
