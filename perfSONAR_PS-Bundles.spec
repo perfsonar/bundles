@@ -1,7 +1,7 @@
 %define relnum 1 
 %define disttag pSPS
 
-Version:		3.4.0
+Version:		3.5
 Name:			perfSONAR_PS-Bundles
 Summary:		Bundles of the perfSONAR-PS Software
 Release:		%{relnum}.%{disttag}
@@ -55,6 +55,29 @@ Requires:               perl-perfSONAR_PS-Toolkit-Install-Scripts
 %description Core
 The perfSONAR Toolkit - regular testing and MA bundle
 
+%package Complete
+Summary:                pS-Performance Toolkit Complete - All perfSOANR Toolkit rpms
+Group:                  Applications/Communications
+Requires:               Internet2-repo
+Requires:               datastax-repo
+Requires:               bwctl-client
+Requires:               bwctl-server
+Requires:               ndt-client
+Requires:               owamp-client
+Requires:               owamp-server
+Requires:               nuttcp
+Requires:               iperf
+Requires:               iperf3
+Requires:               ntp
+Requires:               esmond
+Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
+Requires:               perl-perfSONAR_PS-RegularTesting
+Requires:               perl-perfSONAR_PS-Toolkit
+Requires:               perl-perfSONAR_PS-Toolkit-SystemEnvironment
+
+%description Complete
+The perfSONAR Toolkit - All perfSONAR Toolkit rpms
+
 %package CentralManagement
 Summary:		pS-Performance Toolkit Bundle - Central Management
 Group:			Applications/Communications
@@ -76,6 +99,9 @@ The perfSONAR Toolkit - Central Management
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files Core
+%defattr(0644,perfsonar,perfsonar,0755)
+
+%files Complete
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files CentralManagement
