@@ -40,7 +40,8 @@ Description: perfSONAR endpoint metapackage
 
 Package: perfsonar-core
 Architecture: all
-Depends: perfsonar-endpoint, esmond, ${misc:Depends}
+Depends: perfsonar-endpoint, esmond, perfsonar-meshconfig-agent,
+ perfsonar-meshconfig-jsonbuilder, ${misc:Depends}
 Description: perfSONAR core metapackage
  perfSONAR combines a number of measurement tools and services.
  .
