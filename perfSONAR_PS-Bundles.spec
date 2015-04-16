@@ -1,9 +1,9 @@
 %define relnum 1 
-%define disttag pSPS
+%define disttag pS
 
 Version:		3.5
-Name:			perfSONAR_PS-Bundles
-Summary:		Bundles of the perfSONAR-PS Software
+Name:			perfSONAR-Bundles
+Summary:		Bundles of the perfSONAR Software
 Release:		%{relnum}.%{disttag}
 License:		Distributable, see LICENSE
 Group:			Applications/Communications
@@ -11,7 +11,7 @@ URL:			http://psps.perfsonar.net/
 BuildArch:		noarch
 
 %description
-Various bundles of the perfSONAR-PS Software
+Various bundles of the perfSONAR Software
 
 %package TestPoint
 Summary:		pS-Performance Toolkit Bundle - minimal test end point
