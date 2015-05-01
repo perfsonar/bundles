@@ -26,7 +26,8 @@ Description: perfSONAR tools metapackage
 Package: perfsonar-endpoint
 Architecture: all
 Depends: perfsonar-tools, perfsonar-lsregistrationdaemon, 
- perfsonar-regulartesting, ${misc:Depends}
+ perfsonar-regulartesting, perfsonar-toolkit-security,
+ perfsonar-toolkit-sysctl, ${misc:Depends}
 Description: perfSONAR endpoint metapackage
  perfSONAR combines a number of measurement tools and services.
  .
