@@ -1,3 +1,10 @@
+perfsonar-bundles (3.4.3) perfsonar-wheezy-staging; urgency=low
+
+  Removing perfsonar-toolkit-security and perfsonar-toolkit-sysctl that do not
+  make part of the 3.4 releases.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Fri, 12 Jun 2015 10:41:30 +0000
+
 perfsonar-bundles (3.4.2) perfsonar-wheezy-staging; urgency=low
 
   * Adding perfsonar-toolkit-security and perfsonar-toolkit-sysctl to
