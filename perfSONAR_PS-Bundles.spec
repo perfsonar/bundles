@@ -24,7 +24,8 @@ Requires:		owamp-client
 Requires:		owamp-server
 Requires:		nuttcp
 Requires:		iperf
-Requires:               iperf3
+Requires:       iperf3
+Requires:       paris-traceroute
 Requires:		ntp
 Requires:		perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:               perl-perfSONAR_PS-RegularTesting
@@ -46,6 +47,7 @@ Requires:               owamp-server
 Requires:               nuttcp
 Requires:               iperf
 Requires:               iperf3
+Requires:       paris-traceroute
 Requires:               ntp
 Requires:               esmond
 Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
@@ -68,6 +70,7 @@ Requires:               owamp-server
 Requires:               nuttcp
 Requires:               iperf
 Requires:               iperf3
+Requires:       paris-traceroute
 Requires:               ntp
 Requires:               esmond
 Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
