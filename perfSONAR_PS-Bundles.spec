@@ -85,7 +85,6 @@ The perfSONAR Toolkit - All perfSONAR Toolkit rpms
 Summary:        pS-Performance Toolkit Bundle - Central Management
 Group:          Applications/Communications
 Requires:       Internet2-repo
-Requires:       datastax-repo
 Requires:       perl-perfSONAR_PS-MeshConfig-Agent
 Requires:       maddash
 Requires:       esmond
