@@ -13,8 +13,8 @@ BuildArch:      noarch
 %description
 Various bundles of the perfSONAR Software
 
-%package TestPoint
-Summary:        pS-Performance Toolkit Bundle - minimal test end point
+%package Tools
+Summary:        pS-Performance Toolkit Bundle - perfSONAR Tools
 Group:          Applications/Communications
 Requires:       Internet2-repo
 Requires:       bwctl-client
@@ -25,8 +25,22 @@ Requires:       owamp-server
 Requires:       nuttcp
 Requires:       iperf
 Requires:       iperf3
+Requires:       iputils-ping
+Requires:       iputils-tracepath,
+Requires:       traceroute
 Requires:       paris-traceroute
 Requires:       ntp
+
+%description Tools
+The perfSONAR Toolkit - perfSONAR tools bundle
+
+%package TestPoint
+Summary:        pS-Performance Toolkit Bundle - minimal test end point
+Group:          Applications/Communications
+Requires:       Internet2-repo
+Requires:       perfSONAR-Bundles-Tools
+Requires:       perfsonar-oppd-bwctl
+Requires:       perfsonar-oppd-owamp
 Requires:       perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:       perl-perfSONAR_PS-RegularTesting
 Requires:       perl-perfSONAR_PS-Toolkit-Install-Scripts
@@ -39,16 +53,7 @@ Summary:                pS-Performance Toolkit Core - regular testing and MA
 Group:                  Applications/Communications
 Requires:               Internet2-repo
 Requires:               datastax-repo
-Requires:               bwctl-client
-Requires:               bwctl-server
-Requires:               ndt-client
-Requires:               owamp-client
-Requires:               owamp-server
-Requires:               nuttcp
-Requires:               iperf
-Requires:               iperf3
-Requires:               paris-traceroute
-Requires:               ntp
+Requires:               perfSONAR-Bundles-Tools
 Requires:               esmond
 Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:               perl-perfSONAR_PS-RegularTesting
@@ -62,16 +67,7 @@ Summary:                pS-Performance Toolkit Complete - All perfSOANR Toolkit 
 Group:                  Applications/Communications
 Requires:               Internet2-repo
 Requires:               datastax-repo
-Requires:               bwctl-client
-Requires:               bwctl-server
-Requires:               ndt-client
-Requires:               owamp-client
-Requires:               owamp-server
-Requires:               nuttcp
-Requires:               iperf
-Requires:               iperf3
-Requires:               paris-traceroute
-Requires:               ntp
+Requires:               perfSONAR-Bundles-Tools
 Requires:               esmond
 Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:               perl-perfSONAR_PS-RegularTesting
