@@ -1,4 +1,4 @@
-%define relnum 0.0.a1 
+%define relnum 0.1.rc1 
 %define disttag pS
 
 Version:        3.5
@@ -63,7 +63,7 @@ Requires:               perl-perfSONAR_PS-Toolkit-Install-Scripts
 The perfSONAR Toolkit - regular testing and MA bundle
 
 %package Complete
-Summary:                pS-Performance Toolkit Complete - All perfSOANR Toolkit rpms
+Summary:                pS-Performance Toolkit Complete - All perfSONAR Toolkit rpms
 Group:                  Applications/Communications
 Requires:               Internet2-repo
 Requires:               datastax-repo
