@@ -1,4 +1,4 @@
-%define relnum 0.1.rc1 
+%define relnum 0.2.rc1 
 %define disttag pS
 
 Version:        3.5
@@ -39,8 +39,8 @@ Summary:        pS-Performance Toolkit Bundle - minimal test end point
 Group:          Applications/Communications
 Requires:       Internet2-repo
 Requires:       perfSONAR-Bundles-Tools
-Requires:       perfsonar-oppd-bwctl
-Requires:       perfsonar-oppd-owamp
+Requires:       perl-perfSONAR-OPPD-MP-BWCTL
+Requires:       perl-perfSONAR-OPPD-MP-OWAMP
 Requires:       perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:       perl-perfSONAR_PS-RegularTesting
 Requires:       perl-perfSONAR_PS-Toolkit-Install-Scripts
