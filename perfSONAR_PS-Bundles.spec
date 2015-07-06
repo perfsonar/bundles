@@ -1,4 +1,4 @@
-%define relnum 0.2.rc1 
+%define relnum 0.3.rc1 
 %define disttag pS
 
 Version:        3.5
@@ -107,6 +107,9 @@ echo "bundle_version  %{version}" >> /opt/perfsonar_ps/ls_registration_daemon/et
 mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
 
 %files
+%defattr(0644,perfsonar,perfsonar,0755)
+
+%files Tools
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files TestPoint
