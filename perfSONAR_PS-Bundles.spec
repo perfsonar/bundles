@@ -25,9 +25,8 @@ Requires:       owamp-server
 Requires:       nuttcp
 Requires:       iperf
 Requires:       iperf3
-Requires:       iputils-ping
-Requires:       iputils-tracepath,
 Requires:       traceroute
+Requires:       iputils
 Requires:       paris-traceroute
 Requires:       ntp
 
