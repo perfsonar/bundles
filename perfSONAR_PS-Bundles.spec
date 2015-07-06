@@ -1,71 +1,128 @@
-%define relnum 1 
-%define disttag pSPS
+%define relnum 0.2.rc1 
+%define disttag pS
 
-Version:		3.4.0
-Name:			perfSONAR_PS-Bundles
-Summary:		Bundles of the perfSONAR-PS Software
-Release:		%{relnum}.%{disttag}
-License:		Distributable, see LICENSE
-Group:			Applications/Communications
-URL:			http://psps.perfsonar.net/
-BuildArch:		noarch
+Version:        3.5
+Name:           perfSONAR-Bundles
+Summary:        Bundles of the perfSONAR Software
+Release:        %{relnum}.%{disttag}
+License:        Distributable, see LICENSE
+Group:          Applications/Communications
+URL:            http://psps.perfsonar.net/
+BuildArch:      noarch
 
 %description
-Various bundles of the perfSONAR-PS Software
+Various bundles of the perfSONAR Software
 
-%package Level1
-Summary:		pS-Performance Toolkit Bundle - Level 1
-Group:			Applications/Communications
-Requires:		bwctl-client
-Requires:		bwctl-server
-Requires:		ndt-client
-Requires:		owamp-client
-Requires:		owamp-server
-Requires:		nuttcp
-Requires:		iperf
-Requires:               iperf3
-Requires:		ntp
-Requires:		perl-perfSONAR_PS-LSRegistrationDaemon
+%package Tools
+Summary:        pS-Performance Toolkit Bundle - perfSONAR Tools
+Group:          Applications/Communications
+Requires:       Internet2-repo
+Requires:       bwctl-client
+Requires:       bwctl-server
+Requires:       ndt-client
+Requires:       owamp-client
+Requires:       owamp-server
+Requires:       nuttcp
+Requires:       iperf
+Requires:       iperf3
+Requires:       iputils-ping
+Requires:       iputils-tracepath,
+Requires:       traceroute
+Requires:       paris-traceroute
+Requires:       ntp
 
-%description Level1
-The perfSONAR Toolkit - Level 1 Bundle
+%description Tools
+The perfSONAR Toolkit - perfSONAR tools bundle
 
-%package Level2
-Summary:		pS-Performance Toolkit Bundle - Level 2
-Group:			Applications/Communications
-Requires:		bwctl-client
-Requires:		bwctl-server
-Requires:		ndt-client
-Requires:		owamp-client
-Requires:		owamp-server
-Requires:		nuttcp
-Requires:		iperf
-Requires:               iperf3
-Requires:		ntp
-Requires:		perl-perfSONAR_PS-LSRegistrationDaemon
+%package TestPoint
+Summary:        pS-Performance Toolkit Bundle - minimal test end point
+Group:          Applications/Communications
+Requires:       Internet2-repo
+Requires:       perfSONAR-Bundles-Tools
+Requires:       perl-perfSONAR-OPPD-MP-BWCTL
+Requires:       perl-perfSONAR-OPPD-MP-OWAMP
+Requires:       perl-perfSONAR_PS-LSRegistrationDaemon
+Requires:       perl-perfSONAR_PS-RegularTesting
+Requires:       perl-perfSONAR_PS-Toolkit-Install-Scripts
+
+%description TestPoint
+The perfSONAR Toolkit - minimal test point bundle
+
+%package Core
+Summary:                pS-Performance Toolkit Core - regular testing and MA
+Group:                  Applications/Communications
+Requires:               Internet2-repo
+Requires:               datastax-repo
+Requires:               perfSONAR-Bundles-Tools
+Requires:               esmond
+Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:               perl-perfSONAR_PS-RegularTesting
-Requires:		perl-perfSONAR_PS-MeshConfig-Agent
+Requires:               perl-perfSONAR_PS-Toolkit-Install-Scripts
 
-%description Level2
-The perfSONAR Toolkit - Level 2 Bundle
+%description Core
+The perfSONAR Toolkit - regular testing and MA bundle
 
-%post
+%package Complete
+Summary:                pS-Performance Toolkit Complete - All perfSONAR Toolkit rpms
+Group:                  Applications/Communications
+Requires:               Internet2-repo
+Requires:               datastax-repo
+Requires:               perfSONAR-Bundles-Tools
+Requires:               esmond
+Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
+Requires:               perl-perfSONAR_PS-RegularTesting
+Requires:               perl-perfSONAR_PS-Toolkit
+Requires:               perl-perfSONAR_PS-Toolkit-SystemEnvironment
+
+%description Complete
+The perfSONAR Toolkit - All perfSONAR Toolkit rpms
+
+%package CentralManagement
+Summary:        pS-Performance Toolkit Bundle - Central Management
+Group:          Applications/Communications
+Requires:       Internet2-repo
+Requires:       perl-perfSONAR_PS-MeshConfig-Agent
+Requires:       maddash
+Requires:       esmond
+
+%description CentralManagement
+The perfSONAR Toolkit - Central Management
+
+%post TestPoint
+grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+echo "bundle_type  test-point" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+echo "bundle_version  %{version}" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
+
+%post Core
+grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+echo "bundle_type  perfsonar-core" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+echo "bundle_version  %{version}" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
+
+%post Complete
+grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+echo "bundle_type  perfsonar-complete" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+echo "bundle_version  %{version}" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
+mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
 
 %files
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files Level1
+%files TestPoint
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files Level2
+%files Core
+%defattr(0644,perfsonar,perfsonar,0755)
+
+%files Complete
+%defattr(0644,perfsonar,perfsonar,0755)
+
+%files CentralManagement
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
-* Wed Nov 12 2014 daldoyle@grnoc.iu.edu 3.4.0-1
-- Removed PingER, perfSONARBOUY, and TracerouteMA. Replaced with RegularTesting
-
-* Fri Mar 07 2014 aaron@internet2.edu 3.3.2-1
-- Fix a minor issue with the mesh configuration link
-
-* Thu Aug 01 2013 aaron@internet2.edu 3.3.1-1
-- Initial bundle release
+* Wed Mar 25 2015 sowmya@es.net
+- Core bundle
+* Tue Mar 24 2015 sowmya@es.net
+- Testpoint and CentralManagement bundle
