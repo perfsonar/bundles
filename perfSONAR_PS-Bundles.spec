@@ -1,4 +1,4 @@
-%define relnum 0.3.rc1 
+%define relnum 0.4.rc1 
 %define disttag pS
 
 Version:        3.5
@@ -124,6 +124,8 @@ mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp 
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
+* Mon Jul 06 2015 adelvaux@man.poznan.pl
+- Tools bundle
 * Wed Mar 25 2015 sowmya@es.net
 - Core bundle
 * Tue Mar 24 2015 sowmya@es.net
