@@ -1,8 +1,8 @@
-perfsonar-bundles (3.5) UNRELEASED; urgency=low
+perfsonar-bundles (3.5~1.rc1) perfsonar-wheezy-staging; urgency=low
 
-  * TO BE FILLED IN...
+  * Renaming perfsonar-endpoint bundle to perfsonar-testpoint
 
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Thu, 11 Jun 2015 22:07:33 +0000
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Mon, 06 Jul 2015 18:25:00 +0000
 
 perfsonar-bundles (3.4.2) perfsonar-wheezy-staging; urgency=low
 
