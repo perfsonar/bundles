@@ -1,4 +1,4 @@
-%define relnum 0.1.rc1 
+%define relnum 0.2.rc1 
 %define disttag pS
 
 Version:        3.5
@@ -52,11 +52,8 @@ The perfSONAR Toolkit - minimal test point bundle
 Summary:                pS-Performance Toolkit Core - regular testing and MA
 Group:                  Applications/Communications
 Requires:               Internet2-repo
-Requires:               datastax-repo
-Requires:               perfSONAR-Bundles-Tools
+Requires:               perfSONAR-Bundles-TestPoint
 Requires:               esmond
-Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
-Requires:               perl-perfSONAR_PS-RegularTesting
 Requires:               perl-perfSONAR_PS-Toolkit-Install-Scripts
 
 %description Core
@@ -66,11 +63,7 @@ The perfSONAR Toolkit - regular testing and MA bundle
 Summary:                pS-Performance Toolkit Complete - All perfSONAR Toolkit rpms
 Group:                  Applications/Communications
 Requires:               Internet2-repo
-Requires:               datastax-repo
-Requires:               perfSONAR-Bundles-Tools
-Requires:               esmond
-Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
-Requires:               perl-perfSONAR_PS-RegularTesting
+Requires:               perfSONAR-Bundles-Core
 Requires:               perl-perfSONAR_PS-Toolkit
 Requires:               perl-perfSONAR_PS-Toolkit-SystemEnvironment
 
