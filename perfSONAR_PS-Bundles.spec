@@ -1,4 +1,4 @@
-%define relnum 0.2.rc1 
+%define relnum 0.5.rc1 
 %define disttag pS
 
 Version:        3.5
@@ -25,9 +25,8 @@ Requires:       owamp-server
 Requires:       nuttcp
 Requires:       iperf
 Requires:       iperf3
-Requires:       iputils-ping
-Requires:       iputils-tracepath,
 Requires:       traceroute
+Requires:       iputils
 Requires:       paris-traceroute
 Requires:       ntp
 
@@ -39,8 +38,8 @@ Summary:        pS-Performance Toolkit Bundle - minimal test end point
 Group:          Applications/Communications
 Requires:       Internet2-repo
 Requires:       perfSONAR-Bundles-Tools
-Requires:       perfsonar-oppd-bwctl
-Requires:       perfsonar-oppd-owamp
+Requires:       perl-perfSONAR-OPPD-MP-BWCTL
+Requires:       perl-perfSONAR-OPPD-MP-OWAMP
 Requires:       perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:       perl-perfSONAR_PS-RegularTesting
 Requires:       perl-perfSONAR_PS-Toolkit-Install-Scripts
@@ -106,6 +105,9 @@ mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp 
 %files
 %defattr(0644,perfsonar,perfsonar,0755)
 
+%files Tools
+%defattr(0644,perfsonar,perfsonar,0755)
+
 %files TestPoint
 %defattr(0644,perfsonar,perfsonar,0755)
 
@@ -119,6 +121,8 @@ mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp 
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
+* Mon Jul 06 2015 adelvaux@man.poznan.pl
+- Tools bundle
 * Wed Mar 25 2015 sowmya@es.net
 - Core bundle
 * Tue Mar 24 2015 sowmya@es.net
