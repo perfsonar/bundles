@@ -81,6 +81,10 @@ Requires:       esmond
 %description CentralManagement
 The perfSONAR Toolkit - Central Management
 
+%pre Tools
+/usr/sbin/groupadd perfsonar 2> /dev/null || :
+/usr/sbin/useradd -g perfsonar -r -s /sbin/nologin -c "perfSONAR User" -d /tmp perfsonar 2> /dev/null || :
+
 %post TestPoint
 grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
 echo "bundle_type  test-point" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
