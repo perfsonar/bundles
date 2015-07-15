@@ -13,9 +13,17 @@ BuildArch:      noarch
 %description
 Various bundles of the perfSONAR Software
 
+%package common
+Summary:        Package common to all perfSONAR tools
+Group:          Applications/Communications
+
+%description common
+Package common to all perfsonar tools. Creates users, groups, logging directories, etc.
+
 %package Tools
 Summary:        pS-Performance Toolkit Bundle - perfSONAR Tools
 Group:          Applications/Communications
+Requires:       perfSONAR-Bundles-common
 Requires:       Internet2-repo
 Requires:       bwctl-client
 Requires:       bwctl-server
@@ -80,9 +88,13 @@ Requires:       esmond
 %description CentralManagement
 The perfSONAR Toolkit - Central Management
 
-%pre Tools
+%pre common
 /usr/sbin/groupadd perfsonar 2> /dev/null || :
 /usr/sbin/useradd -g perfsonar -r -s /sbin/nologin -c "perfSONAR User" -d /tmp perfsonar 2> /dev/null || :
+
+%post common
+mkdir -p /var/log/perfsonar
+chown perfsonar:perfsonar /var/log/perfsonar
 
 %post TestPoint
 grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
@@ -121,6 +133,8 @@ mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp 
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
+* Mon Jul 14 2015 andy@es.net
+- common bundle
 * Mon Jul 06 2015 adelvaux@man.poznan.pl
 - Tools bundle
 * Wed Mar 25 2015 sowmya@es.net
