@@ -138,6 +138,9 @@ chmod 644 /var/lib/perfsonar/bundles/bundle_version
 %files CentralManagement
 %defattr(0644,perfsonar,perfsonar,0755)
 
+%files common
+%defattr(0644,perfsonar,perfsonar,0755)
+
 %changelog
 * Mon Jul 14 2015 andy@es.net
 - common bundle
