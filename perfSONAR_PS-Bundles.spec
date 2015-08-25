@@ -1,4 +1,4 @@
-%define relnum 0.5.rc1 
+%define relnum 0.6.rc2 
 %define disttag pS
 
 Version:        3.5
