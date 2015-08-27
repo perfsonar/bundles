@@ -1,4 +1,4 @@
-%define relnum 0.7.rc2 
+%define relnum 0.8.rc2 
 %define disttag pS
 
 Version:        3.5
@@ -54,6 +54,7 @@ Requires:       perl-perfSONAR-OPPD-MP-OWAMP
 Requires:       perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:       perl-perfSONAR_PS-RegularTesting
 Requires:       perl-perfSONAR_PS-Toolkit-Install-Scripts
+Requires:       perl-perfSONAR_PS-MeshConfig-Agent
 
 %description TestPoint
 The perfSONAR Toolkit - minimal test point bundle
@@ -84,7 +85,8 @@ The perfSONAR Toolkit - All perfSONAR Toolkit rpms
 Summary:        pS-Performance Toolkit Bundle - Central Management
 Group:          Applications/Communications
 Requires:       Internet2-repo
-Requires:       perl-perfSONAR_PS-MeshConfig-Agent
+Requires:       perl-perfSONAR_PS-MeshConfig-JSONBuilder
+Requires:       perl-perfSONAR_PS-MeshConfig-GUIAgent
 Requires:       maddash
 Requires:       esmond
 
