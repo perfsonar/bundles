@@ -1,4 +1,4 @@
-%define relnum 0.6.rc2 
+%define relnum 0.7.rc2 
 %define disttag pS
 
 Version:        3.5
@@ -16,6 +16,9 @@ Various bundles of the perfSONAR Software
 %package common
 Summary:        Package common to all perfSONAR tools
 Group:          Applications/Communications
+Requires: coreutils
+Requires(pre): coreutils
+Requires(post): coreutils
 
 %description common
 Package common to all perfsonar tools. Creates users, groups, logging directories, etc.
