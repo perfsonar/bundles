@@ -13,7 +13,7 @@ Architecture: all
 Depends: bwctl-client, bwctl-server, ndt-client,
  owamp-client, owamp-server, nuttcp, iperf, iperf3,
  iputils-ping, iputils-tracepath, traceroute, paris-traceroute,
- ${misc:Depends}
+ perfsonar-common, ${misc:Depends}
 Description: perfSONAR tools metapackage
  perfSONAR combines a number of measurement tools and services.
  .
@@ -42,7 +42,7 @@ Description: perfSONAR testpoint metapackage
 
 Package: perfsonar-core
 Architecture: all
-Depends: perfsonar-endpoint, esmond, perfsonar-meshconfig-agent,
+Depends: perfsonar-testpoint, esmond, perfsonar-meshconfig-agent,
  perfsonar-meshconfig-jsonbuilder, ${misc:Depends}
 Description: perfSONAR core metapackage
  perfSONAR combines a number of measurement tools and services.
