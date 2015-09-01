@@ -1,4 +1,4 @@
-%define relnum 0.2.rc1 
+%define relnum 0.8.rc2 
 %define disttag pS
 
 Version:        3.5
@@ -13,9 +13,20 @@ BuildArch:      noarch
 %description
 Various bundles of the perfSONAR Software
 
+%package common
+Summary:        Package common to all perfSONAR tools
+Group:          Applications/Communications
+Requires: coreutils
+Requires(pre): coreutils
+Requires(post): coreutils
+
+%description common
+Package common to all perfsonar tools. Creates users, groups, logging directories, etc.
+
 %package Tools
 Summary:        pS-Performance Toolkit Bundle - perfSONAR Tools
 Group:          Applications/Communications
+Requires:       perfSONAR-Bundles-common
 Requires:       Internet2-repo
 Requires:       bwctl-client
 Requires:       bwctl-server
@@ -25,9 +36,8 @@ Requires:       owamp-server
 Requires:       nuttcp
 Requires:       iperf
 Requires:       iperf3
-Requires:       iputils-ping
-Requires:       iputils-tracepath,
 Requires:       traceroute
+Requires:       iputils
 Requires:       paris-traceroute
 Requires:       ntp
 
@@ -44,6 +54,7 @@ Requires:       perl-perfSONAR-OPPD-MP-OWAMP
 Requires:       perl-perfSONAR_PS-LSRegistrationDaemon
 Requires:       perl-perfSONAR_PS-RegularTesting
 Requires:       perl-perfSONAR_PS-Toolkit-Install-Scripts
+Requires:       perl-perfSONAR_PS-MeshConfig-Agent
 
 %description TestPoint
 The perfSONAR Toolkit - minimal test point bundle
@@ -52,11 +63,8 @@ The perfSONAR Toolkit - minimal test point bundle
 Summary:                pS-Performance Toolkit Core - regular testing and MA
 Group:                  Applications/Communications
 Requires:               Internet2-repo
-Requires:               datastax-repo
-Requires:               perfSONAR-Bundles-Tools
+Requires:               perfSONAR-Bundles-TestPoint
 Requires:               esmond
-Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
-Requires:               perl-perfSONAR_PS-RegularTesting
 Requires:               perl-perfSONAR_PS-Toolkit-Install-Scripts
 
 %description Core
@@ -66,11 +74,7 @@ The perfSONAR Toolkit - regular testing and MA bundle
 Summary:                pS-Performance Toolkit Complete - All perfSONAR Toolkit rpms
 Group:                  Applications/Communications
 Requires:               Internet2-repo
-Requires:               datastax-repo
-Requires:               perfSONAR-Bundles-Tools
-Requires:               esmond
-Requires:               perl-perfSONAR_PS-LSRegistrationDaemon
-Requires:               perl-perfSONAR_PS-RegularTesting
+Requires:               perfSONAR-Bundles-Core
 Requires:               perl-perfSONAR_PS-Toolkit
 Requires:               perl-perfSONAR_PS-Toolkit-SystemEnvironment
 
@@ -81,32 +85,50 @@ The perfSONAR Toolkit - All perfSONAR Toolkit rpms
 Summary:        pS-Performance Toolkit Bundle - Central Management
 Group:          Applications/Communications
 Requires:       Internet2-repo
-Requires:       perl-perfSONAR_PS-MeshConfig-Agent
+Requires:       perl-perfSONAR_PS-MeshConfig-JSONBuilder
+Requires:       perl-perfSONAR_PS-MeshConfig-GUIAgent
 Requires:       maddash
 Requires:       esmond
 
 %description CentralManagement
 The perfSONAR Toolkit - Central Management
 
-%post TestPoint
+%pre common
+/usr/sbin/groupadd perfsonar 2> /dev/null || :
+/usr/sbin/useradd -g perfsonar -r -s /sbin/nologin -c "perfSONAR User" -d /tmp perfsonar 2> /dev/null || :
+
+%post common
+mkdir -p /var/log/perfsonar
+chown perfsonar:perfsonar /var/log/perfsonar
+mkdir -p /var/lib/perfsonar/bundles
+
+#remove this after 3.5rc. Cleans out old method of setting type and version
 grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-echo "bundle_type  test-point" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-echo "bundle_version  %{version}" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
 mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
+
+
+%post TestPoint
+echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
+echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+chmod 644 /var/lib/perfsonar/bundles/bundle_type
+chmod 644 /var/lib/perfsonar/bundles/bundle_version
 
 %post Core
-grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-echo "bundle_type  perfsonar-core" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-echo "bundle_version  %{version}" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
+echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
+echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+chmod 644 /var/lib/perfsonar/bundles/bundle_type
+chmod 644 /var/lib/perfsonar/bundles/bundle_version
 
 %post Complete
-grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-echo "bundle_type  perfsonar-complete" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-echo "bundle_version  %{version}" >> /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
+echo "perfsonar-complete" > /var/lib/perfsonar/bundles/bundle_type
+echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+chmod 644 /var/lib/perfsonar/bundles/bundle_type
+chmod 644 /var/lib/perfsonar/bundles/bundle_version
 
 %files
+%defattr(0644,perfsonar,perfsonar,0755)
+
+%files Tools
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files TestPoint
@@ -121,7 +143,14 @@ mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp 
 %files CentralManagement
 %defattr(0644,perfsonar,perfsonar,0755)
 
+%files common
+%defattr(0644,perfsonar,perfsonar,0755)
+
 %changelog
+* Mon Jul 14 2015 andy@es.net
+- common bundle
+* Mon Jul 06 2015 adelvaux@man.poznan.pl
+- Tools bundle
 * Wed Mar 25 2015 sowmya@es.net
 - Core bundle
 * Tue Mar 24 2015 sowmya@es.net
