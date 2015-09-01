@@ -21,8 +21,7 @@ set -e
 
 case "$1" in
     remove)
-        rm -rf /var/lib/perfsonar/bundles/bundle_type
-        rm -rf /var/lib/perfsonar/bundles/bundle_version
+        rm -rf /var/lib/perfsonar/bundles
     ;;
 
     purge|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
