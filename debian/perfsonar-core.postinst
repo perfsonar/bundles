@@ -23,7 +23,7 @@ case "$1" in
 
     # Set bundle type and version
     VERSION=$(zless /usr/share/doc/$DPKG_MAINTSCRIPT_PACKAGE/changelog* | head -1 | perl -ne '$_=~ /.*\((.*)\).*/; print $1;')
-    mkdir /var/lib/perfsonar/bundles
+    mkdir -p /var/lib/perfsonar/bundles
     echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
     echo "${VERSION}" > /var/lib/perfsonar/bundles/bundle_version
     chmod 644 /var/lib/perfsonar/bundles/bundle_type

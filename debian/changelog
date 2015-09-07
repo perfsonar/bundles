@@ -1,11 +1,11 @@
-perfsonar-bundles (3.5~8.rc2-3) perfsonar-wheezy-staging; urgency=low
+perfsonar-bundles (3.5~8.rc2-4) perfsonar-wheezy-staging; urgency=low
 
   * Renaming perfsonar-endpoint bundle to perfsonar-testpoint
   * Adding perfsonar-meshconfig-agent to perfsonr-testpoint
   * Generating /var/lib/perfsonar/bundles/bundle_type
   * Generating /var/lib/perfsonar/bundles/version
 
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Mon, 07 Sep 2015 23:02:18 +0000
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Mon, 07 Sep 2015 23:31:12 +0000
 
 perfsonar-bundles (3.4.2) perfsonar-wheezy-staging; urgency=low
 
