@@ -43,18 +43,18 @@ Description: perfSONAR testpoint metapackage
  command-line clients so that you may run one-time tests to
  other servers.
 
-Package: perfsonar-core
-Architecture: all
-Depends: perfsonar-testpoint, esmond, perfsonar-meshconfig-agent,
- perfsonar-meshconfig-jsonbuilder, ${misc:Depends}
-Description: perfSONAR core metapackage
- perfSONAR combines a number of measurement tools and services.
- .
- perfSONAR core metapackage installs bwctl and owamp server
- along with tools to publish the location of these services to the
- perfSONAR-PS Simple Lookup Service, run regular tests and
- a Measurement Archive for storing results.
- .
- This type of installation also contains the bwctl, owamp and ndt
- command-line clients so that you may run one-time tests to
- other servers.
+#Package: perfsonar-core
+#Architecture: all
+#Depends: perfsonar-testpoint, esmond, perfsonar-meshconfig-agent,
+# perfsonar-meshconfig-jsonbuilder, ${misc:Depends}
+#Description: perfSONAR core metapackage
+# perfSONAR combines a number of measurement tools and services.
+# .
+# perfSONAR core metapackage installs bwctl and owamp server
+# along with tools to publish the location of these services to the
+# perfSONAR-PS Simple Lookup Service, run regular tests and
+# a Measurement Archive for storing results.
+# .
+# This type of installation also contains the bwctl, owamp and ndt
+# command-line clients so that you may run one-time tests to
+# other servers.
