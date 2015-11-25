@@ -1,3 +1,9 @@
+perfsonar-bundles (3.5.1) perfsonar-jessie-staging; urgency=low
+
+  * Prepare for jessie.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Wed, 25 Nov 2015 16:14:56 +0100
+
 perfsonar-bundles (3.5-1) perfsonar-wheezy-release; urgency=low
 
   * Renaming perfsonar-endpoint bundle to perfsonar-testpoint
