@@ -35,7 +35,7 @@ Description: perfSONAR testpoint metapackage
  perfSONAR testpoint metapackage installs bwctl and owamp server
  along with tools to publish the location of these services to the
  perfSONAR Simple Lookup Service and run regular tests. It also
- contains de mesh-config agent so that you can easily make your
+ contains the mesh-config agent so that you can easily make your
  testpoint participate in a testing mesh.
  .
  This type of installation also contains the bwctl, owamp and ndt
