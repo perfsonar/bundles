@@ -28,11 +28,11 @@ Package common to all perfsonar tools. Creates users, groups, logging directorie
 Summary:        perfSONAR active measurement tools
 Group:          Applications/Communications
 Requires:       perfsonar-common
-Requires:       bwctl-client
-Requires:       bwctl-server
+Requires:       bwctl-client    >= 1.6.0
+Requires:       bwctl-server    >= 1.6.0
 Requires:       ndt-client
-Requires:       owamp-client
-Requires:       owamp-server
+Requires:       owamp-client    >= 3.5.0
+Requires:       owamp-server    >= 3.5.0
 Requires:       nuttcp
 Requires:       iperf
 Requires:       iperf3
@@ -69,7 +69,7 @@ Perform regularly scheduled perfSONAR measurements and store the results remotel
 Summary:                perfSONAR scheduled testing and storage tools
 Group:                  Applications/Communications
 Requires:               perfsonar-testpoint
-Requires:               esmond
+Requires:               esmond >= 2.0
 Requires:               perfsonar-toolkit-install
 Obsoletes:              perfSONAR-Bundles-Core
 Provides:               perfSONAR-Bundles-Core
@@ -80,10 +80,14 @@ Perform regularly scheduled perfSONAR measurements and store the results locally
 %package centralmanagement
 Summary:        Centrally manage perfSONAR nodes
 Group:          Applications/Communications
+Requires:       libperfsonar-esmond-perl
+Requires:       libperfsonar-sls-perl
+Requires:       libperfsonar-toolkit-perl 
+Requires:       libperfsonar-perl 
 Requires:       perfsonar-meshconfig-jsonbuilder
 Requires:       perfsonar-meshconfig-guiagent
 Requires:       maddash
-Requires:       esmond
+Requires:       esmond >= 2.0
 Obsoletes:      perfSONAR-Bundles-CentralManagement
 Provides:       perfSONAR-Bundles-CentralManagement
 
