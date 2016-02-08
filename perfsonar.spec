@@ -1,13 +1,12 @@
-%define relnum 1 
-%define disttag pS
+%define relnum 0.0.a1 
 
-Version:        3.5
-Name:           perfSONAR-Bundles
+Version:        3.5.1
+Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
-Release:        %{relnum}.%{disttag}
+Release:        %{relnum}
 License:        Distributable, see LICENSE
 Group:          Applications/Communications
-URL:            http://psps.perfsonar.net/
+URL:            http://www.perfsonar.net/
 BuildArch:      noarch
 
 %description
@@ -16,18 +15,19 @@ Various bundles of the perfSONAR Software
 %package common
 Summary:        Package common to all perfSONAR tools
 Group:          Applications/Communications
-Requires: coreutils
-Requires(pre): coreutils
+Requires:       coreutils
+Requires(pre):  coreutils
 Requires(post): coreutils
+Obsoletes:      perfSONAR-Bundles-common
+Provides:       perfSONAR-Bundles-common
 
 %description common
 Package common to all perfsonar tools. Creates users, groups, logging directories, etc.
 
-%package Tools
-Summary:        pS-Performance Toolkit Bundle - perfSONAR Tools
+%package tools
+Summary:        perfSONAR active measurement tools
 Group:          Applications/Communications
-Requires:       perfSONAR-Bundles-common
-Requires:       Internet2-repo
+Requires:       perfsonar-common
 Requires:       bwctl-client
 Requires:       bwctl-server
 Requires:       ndt-client
@@ -40,58 +40,52 @@ Requires:       traceroute
 Requires:       iputils
 Requires:       paris-traceroute
 Requires:       ntp
+Obsoletes:      perfSONAR-Bundles-Tools
+Provides:       perfSONAR-Bundles-Tools
 
-%description Tools
-The perfSONAR Toolkit - perfSONAR tools bundle
+%description tools
+The basic command-line measurement tools used by perfSONAR for on-demand tests. 
 
-%package TestPoint
-Summary:        pS-Performance Toolkit Bundle - minimal test end point
+%package testpoint
+Summary:        perfSONAR scheduled testing tools
 Group:          Applications/Communications
-Requires:       Internet2-repo
-Requires:       perfSONAR-Bundles-Tools
-Requires:       perl-perfSONAR-OPPD-MP-BWCTL
-Requires:       perl-perfSONAR-OPPD-MP-OWAMP
-Requires:       perl-perfSONAR_PS-LSRegistrationDaemon
-Requires:       perl-perfSONAR_PS-RegularTesting
-Requires:       perl-perfSONAR_PS-Toolkit-Install-Scripts
-Requires:       perl-perfSONAR_PS-MeshConfig-Agent
+Requires:       perfsonar-tools
+Requires:       perfsonar-oppd-bwctl
+Requires:       perfsonar-oppd-owamp
+Requires:       perfsonar-lsregistrationdaemon
+Requires:       perfsonar-regulartesting
+Requires:       perfsonar-toolkit-install
+Requires:       perfsonar-meshconfig-agent
+Obsoletes:      perfSONAR-Bundles-TestPoint
+Provides:       perfSONAR-Bundles-TestPoint
 
-%description TestPoint
-The perfSONAR Toolkit - minimal test point bundle
+%description testpoint
+Perform regularly scheduled perfSONAR measurements and store the results remotely.
 
-%package Core
-Summary:                pS-Performance Toolkit Core - regular testing and MA
+%package core
+Summary:                perfSONAR scheduled testing and storage tools
 Group:                  Applications/Communications
-Requires:               Internet2-repo
-Requires:               perfSONAR-Bundles-TestPoint
+Requires:               perfsonar-testpoint
 Requires:               esmond
-Requires:               perl-perfSONAR_PS-Toolkit-Install-Scripts
+Requires:               perfsonar-toolkit-install
+Obsoletes:              perfSONAR-Bundles-Core
+Provides:               perfSONAR-Bundles-Core
 
-%description Core
-The perfSONAR Toolkit - regular testing and MA bundle
+%description core
+Perform regularly scheduled perfSONAR measurements and store the results locally.
 
-%package Complete
-Summary:                pS-Performance Toolkit Complete - All perfSONAR Toolkit rpms
-Group:                  Applications/Communications
-Requires:               Internet2-repo
-Requires:               perfSONAR-Bundles-Core
-Requires:               perl-perfSONAR_PS-Toolkit
-Requires:               perl-perfSONAR_PS-Toolkit-SystemEnvironment
-
-%description Complete
-The perfSONAR Toolkit - All perfSONAR Toolkit rpms
-
-%package CentralManagement
-Summary:        pS-Performance Toolkit Bundle - Central Management
+%package centralmanagement
+Summary:        Centrally manage perfSONAR nodes
 Group:          Applications/Communications
-Requires:       Internet2-repo
-Requires:       perl-perfSONAR_PS-MeshConfig-JSONBuilder
-Requires:       perl-perfSONAR_PS-MeshConfig-GUIAgent
+Requires:       perfsonar-meshconfig-jsonbuilder
+Requires:       perfsonar-meshconfig-guiAgent
 Requires:       maddash
 Requires:       esmond
+Obsoletes:      perfSONAR-Bundles-CentralManagement
+Provides:       perfSONAR-Bundles-CentralManagement
 
-%description CentralManagement
-The perfSONAR Toolkit - Central Management
+%description centralmanagement
+Manage, store and visualize results from multiple nodes running perfSONAR measurements. 
 
 %pre common
 /usr/sbin/groupadd perfsonar 2> /dev/null || :
@@ -107,20 +101,14 @@ grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_da
 mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
 
 
-%post TestPoint
+%post testpoint
 echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
 
-%post Core
+%post core
 echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
-echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
-chmod 644 /var/lib/perfsonar/bundles/bundle_type
-chmod 644 /var/lib/perfsonar/bundles/bundle_version
-
-%post Complete
-echo "perfsonar-complete" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
@@ -128,19 +116,16 @@ chmod 644 /var/lib/perfsonar/bundles/bundle_version
 %files
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files Tools
+%files tools
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files TestPoint
+%files testpoint
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files Core
+%files core
 %defattr(0644,perfsonar,perfsonar,0755)
 
-%files Complete
-%defattr(0644,perfsonar,perfsonar,0755)
-
-%files CentralManagement
+%files centralmanagement
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files common
