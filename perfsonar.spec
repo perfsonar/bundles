@@ -81,7 +81,7 @@ Perform regularly scheduled perfSONAR measurements and store the results locally
 Summary:        Centrally manage perfSONAR nodes
 Group:          Applications/Communications
 Requires:       perfsonar-meshconfig-jsonbuilder
-Requires:       perfsonar-meshconfig-guiAgent
+Requires:       perfsonar-meshconfig-guiagent
 Requires:       maddash
 Requires:       esmond
 Obsoletes:      perfSONAR-Bundles-CentralManagement
