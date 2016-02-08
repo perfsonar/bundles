@@ -49,6 +49,9 @@ The basic command-line measurement tools used by perfSONAR for on-demand tests.
 %package testpoint
 Summary:        perfSONAR scheduled testing tools
 Group:          Applications/Communications
+Requires:       libperfsonar-regulartesting-perl
+Requires:       libperfsonar-toolkit-perl 
+Requires:       libperfsonar-perl 
 Requires:       perfsonar-tools
 Requires:       perfsonar-oppd-bwctl
 Requires:       perfsonar-oppd-owamp
