@@ -103,11 +103,6 @@ mkdir -p /var/log/perfsonar
 chown perfsonar:perfsonar /var/log/perfsonar
 mkdir -p /var/lib/perfsonar/bundles
 
-#remove this after 3.5rc. Cleans out old method of setting type and version
-grep -v "bundle" /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf > /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp
-mv /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf.tmp /opt/perfsonar_ps/ls_registration_daemon/etc/ls_registration_daemon.conf
-
-
 %post testpoint
 echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
