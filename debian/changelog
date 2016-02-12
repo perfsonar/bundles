@@ -1,3 +1,9 @@
+perfsonar-bundles (3.5.1~1.rc1-1~bpo70+1) UNRELEASED; urgency=medium
+
+  * New upstream version.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 12 Feb 2016 16:37:25 +0100
+
 perfsonar-bundles (3.5-1) perfsonar-wheezy-release; urgency=low
 
   * Renaming perfsonar-endpoint bundle to perfsonar-testpoint
