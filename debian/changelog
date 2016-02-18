@@ -1,8 +1,15 @@
-perfsonar-bundles (3.5.1~1.rc1-1~bpo70+1) UNRELEASED; urgency=medium
+perfsonar-bundles (3.5.1~2.rc1-1~bpo70+1) perfsonar-wheezy-staging; urgency=low
 
-  * New upstream version.
+  * Backport to wheezy.
 
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 12 Feb 2016 16:37:25 +0100
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Thu, 18 Feb 2016 17:35:49 +0000
+
+perfsonar-bundles (3.5.1~2.rc1-1) perfsonar-jessie-staging; urgency=low
+
+  * Prepare for jessie.
+  * Adding perfsonar-lsregistrationdaemon to perfsonar-centralmanagement bundle
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Thu, 18 Feb 2016 17:31:41 +0000
 
 perfsonar-bundles (3.5-1) perfsonar-wheezy-release; urgency=low
 
