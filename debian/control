@@ -60,7 +60,7 @@ Description: perfSONAR core metapackage
 Package: perfsonar-centralmanagement
 Architecture: all
 Depends: perfsonar-meshconfig-jsonbuilder, perfsonar-meshconfig-guiagent,
- maddash, esmond, ${misc:Depends}
+ perfsonar-lsregistrationdaemon, maddash, esmond, ${misc:Depends}
 Description: perfSONAR central management metapackage
  perfSONAR combines a number of measurement tools and services.
  .
