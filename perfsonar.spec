@@ -84,6 +84,7 @@ Requires:       libperfsonar-esmond-perl
 Requires:       libperfsonar-sls-perl
 Requires:       libperfsonar-toolkit-perl 
 Requires:       libperfsonar-perl 
+Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-meshconfig-jsonbuilder
 Requires:       perfsonar-meshconfig-guiagent
 Requires:       maddash
