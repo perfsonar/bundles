@@ -1,15 +1,15 @@
-perfsonar-bundles (3.5.1~beta.1~bpo70+1) perfsonar-wheezy-release; urgency=low
+perfsonar-bundles (3.5.1~bpo70+1) perfsonar-wheezy-release; urgency=low
 
   * Backport to Wheezy.
 
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Fri, 04 Mar 2016 15:24:28 +0100
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Fri, 04 Mar 2016 15:29:27 +0100
 
-perfsonar-bundles (3.5.1~beta.1) perfsonar-jessie-release; urgency=low
+perfsonar-bundles (3.5.1) perfsonar-jessie-release; urgency=low
 
   * Prepare for jessie.
   * Adding perfsonar-lsregistrationdaemon to perfsonar-centralmanagement bundle
 
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Fri, 04 Mar 2016 15:20:15 +0100
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Fri, 04 Mar 2016 15:27:30 +0100
 
 perfsonar-bundles (3.5-1) perfsonar-wheezy-release; urgency=low
 
