@@ -42,3 +42,32 @@ Description: perfSONAR testpoint metapackage
  command-line clients so that you may run one-time tests to
  other servers.
 
+Package: perfsonar-core
+Architecture: all
+Depends: perfsonar-testpoint, esmond, ${misc:Depends}
+Description: perfSONAR core metapackage - beta
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR core metapackage installs bwctl and owamp server
+ along with tools to publish the location of these services to the
+ perfSONAR-PS Simple Lookup Service, run regular tests and
+ a Measurement Archive for storing results.
+ .
+ This type of installation also contains the bwctl, owamp and ndt
+ command-line clients so that you may run one-time tests to
+ other servers.
+ .
+ This package is currently a beta release.
+
+Package: perfsonar-centralmanagement
+Architecture: all
+Depends: perfsonar-meshconfig-jsonbuilder, perfsonar-meshconfig-guiagent,
+ perfsonar-lsregistrationdaemon, maddash, esmond, ${misc:Depends}
+Description: perfSONAR central management metapackage - beta
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR central metapackage installs Mesh configuration tools,
+ MaDDash framework for scheduling service checks and displaying results,
+ and a Measurement Archive for storing results.
+ .
+ This package is currently a beta release.
