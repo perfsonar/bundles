@@ -30,7 +30,6 @@ Group:          Applications/Communications
 Requires:       perfsonar-common
 Requires:       bwctl-client    >= 1.6.0
 Requires:       bwctl-server    >= 1.6.0
-Requires:       ndt-client
 Requires:       owamp-client    >= 3.5.0
 Requires:       owamp-server    >= 3.5.0
 Requires:       nuttcp
