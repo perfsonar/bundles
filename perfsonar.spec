@@ -3,7 +3,7 @@
 Version:        3.5.1
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
-Release:        %{relnum}
+Release:        %{relnum}%{?dist}
 License:        Distributable, see LICENSE
 Group:          Applications/Communications
 URL:            http://www.perfsonar.net/
