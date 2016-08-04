@@ -165,6 +165,7 @@ chmod 644 /var/lib/perfsonar/bundles/bundle_version
 #configure database
 if [ $1 -eq 1 ] ; then
     /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
+    /sbin/service httpd restart &>/dev/null || :
 fi
 
 %post centralmanagement
