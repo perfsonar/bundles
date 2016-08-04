@@ -56,6 +56,7 @@ Group:          Applications/Communications
 Requires:       libperfsonar-regulartesting-perl
 Requires:       libperfsonar-toolkit-perl 
 Requires:       libperfsonar-perl 
+Requires:       httpd-wsgi-socket
 Requires:       perfsonar-tools
 Requires:       perfsonar-oppd-bwctl
 Requires:       perfsonar-oppd-owamp
