@@ -142,12 +142,27 @@ echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+#Restart pscheduler daemons to make sure they got all tests, tools, and archivers
+%if 0%{?el7}
+systemctl restart httpd &>/dev/null || :
+systemctl restart pscheduler-archiver &>/dev/null || :
+systemctl restart pscheduler-runner &>/dev/null || :
+systemctl restart pscheduler-scheduler &>/dev/null || :
+systemctl restart pscheduler-ticker &>/dev/null || :
+%else
+/sbin/service httpd restart &>/dev/null || :
+/sbin/service pscheduler-archiver restart &>/dev/null || :
+/sbin/service pscheduler-runner restart &>/dev/null || :
+/sbin/service pscheduler-scheduler restart &>/dev/null || :
+/sbin/service pscheduler-ticker restart &>/dev/null || :
+%endif
 
 %post core
 echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+#configure database
 if [ $1 -eq 1 ] ; then
     /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
 fi
