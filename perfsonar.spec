@@ -151,7 +151,7 @@ if [ $1 -eq 1 ] ; then
     /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
 fi
 
-%post core
+%post centralmanagement
 echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
