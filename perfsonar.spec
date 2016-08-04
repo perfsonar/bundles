@@ -34,6 +34,7 @@ Requires:       bwctl-server    >= 1.6.0
 %else
 Requires:       ndt-client
 %endif
+Requires:       pscheduler-core
 Requires:       owamp-client    >= 3.5.0
 Requires:       owamp-server    >= 3.5.0
 Requires:       nuttcp
@@ -62,6 +63,29 @@ Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-regulartesting
 Requires:       perfsonar-toolkit-install
 Requires:       perfsonar-meshconfig-agent
+Requires:       pscheduler-api-server
+Requires:       pscheduler-archiver-bitbucket
+Requires:       pscheduler-archiver-esmond
+Requires:       pscheduler-archiver-failer
+Requires:       pscheduler-archiver-syslog
+Requires:       pscheduler-core
+Requires:       pscheduler-database
+Requires:       pscheduler-server
+Requires:       pscheduler-test-idle
+Requires:       pscheduler-test-latency
+Requires:       pscheduler-test-rtt
+Requires:       pscheduler-test-simplestream
+Requires:       pscheduler-test-throughput
+Requires:       pscheduler-test-trace
+Requires:       pscheduler-tool-iperf
+Requires:       pscheduler-tool-owping
+Requires:       pscheduler-tool-paris-traceroute
+Requires:       pscheduler-tool-ping
+Requires:       pscheduler-tool-simplestreamer
+Requires:       pscheduler-tool-sleep
+Requires:       pscheduler-tool-snooze
+Requires:       pscheduler-tool-tracepath
+Requires:       pscheduler-tool-traceroute
 Obsoletes:      perfSONAR-Bundles-TestPoint
 Provides:       perfSONAR-Bundles-TestPoint
 
@@ -72,8 +96,11 @@ Perform regularly scheduled perfSONAR measurements and store the results remotel
 Summary:                perfSONAR scheduled testing and storage tools
 Group:                  Applications/Communications
 Requires:               perfsonar-testpoint
-Requires:               esmond >= 2.0
+Requires:               perfsonar-toolkit-compat-database
+Requires:               esmond >= 2.1
+Requires:               esmond-database-postgresql95
 Requires:               perfsonar-toolkit-install
+Requires(post):         perfsonar-toolkit-compat-database
 Obsoletes:              perfSONAR-Bundles-Core
 Provides:               perfSONAR-Bundles-Core
 
@@ -90,8 +117,10 @@ Requires:       libperfsonar-perl
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-meshconfig-jsonbuilder
 Requires:       perfsonar-meshconfig-guiagent
+Requires:       perfsonar-toolkit-compat-database
 Requires:       maddash
-Requires:       esmond >= 2.0
+Requires:       esmond >= 2.1
+Requires:       esmond-database-postgresql95
 Obsoletes:      perfSONAR-Bundles-CentralManagement
 Provides:       perfSONAR-Bundles-CentralManagement
 
@@ -118,6 +147,19 @@ echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+if [ $1 -eq 1 ] ; then
+    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
+fi
+
+%post core
+echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
+echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+chmod 644 /var/lib/perfsonar/bundles/bundle_type
+chmod 644 /var/lib/perfsonar/bundles/bundle_version
+if [ $1 -eq 1 ] ; then
+    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
+fi
+
 
 %files
 %defattr(0644,perfsonar,perfsonar,0755)
