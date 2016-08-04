@@ -1,6 +1,6 @@
-%define relnum 1 
+%define relnum 0.1.rc1 
 
-Version:        3.5.1
+Version:        4.0
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
 Release:        %{relnum}%{?dist}
