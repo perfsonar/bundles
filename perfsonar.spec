@@ -1,4 +1,4 @@
-%define relnum 0.1.rc1 
+%define relnum 0.2.rc1 
 
 Version:        4.0
 Name:           perfsonar
@@ -74,6 +74,7 @@ Requires:       pscheduler-database
 Requires:       pscheduler-server
 Requires:       pscheduler-test-idle
 Requires:       pscheduler-test-latency
+Requires:       pscheduler-test-latencybg
 Requires:       pscheduler-test-rtt
 Requires:       pscheduler-test-simplestream
 Requires:       pscheduler-test-throughput
@@ -82,6 +83,7 @@ Requires:       pscheduler-tool-iperf
 Requires:       pscheduler-tool-owping
 Requires:       pscheduler-tool-paris-traceroute
 Requires:       pscheduler-tool-ping
+Requires:       pscheduler-tool-powstream
 Requires:       pscheduler-tool-simplestreamer
 Requires:       pscheduler-tool-sleep
 Requires:       pscheduler-tool-snooze
