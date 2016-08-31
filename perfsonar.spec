@@ -79,7 +79,7 @@ Requires:       pscheduler-test-rtt
 Requires:       pscheduler-test-simplestream
 Requires:       pscheduler-test-throughput
 Requires:       pscheduler-test-trace
-Requires:       pscheduler-tool-iperf
+Requires:       pscheduler-tool-iperf2
 Requires:       pscheduler-tool-owping
 Requires:       pscheduler-tool-paris-traceroute
 Requires:       pscheduler-tool-ping
