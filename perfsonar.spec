@@ -54,6 +54,7 @@ The basic command-line measurement tools used by perfSONAR for on-demand tests.
 Summary:        perfSONAR scheduled testing tools
 Group:          Applications/Communications
 Requires:       libperfsonar-regulartesting-perl
+Requires:       libperfsonar-pscheduler-perl
 Requires:       libperfsonar-toolkit-perl 
 Requires:       libperfsonar-perl 
 Requires:       httpd-wsgi-socket
@@ -61,7 +62,6 @@ Requires:       perfsonar-tools
 Requires:       perfsonar-oppd-bwctl
 Requires:       perfsonar-oppd-owamp
 Requires:       perfsonar-lsregistrationdaemon
-Requires:       perfsonar-regulartesting
 Requires:       perfsonar-toolkit-install
 Requires:       perfsonar-meshconfig-agent
 Requires:       pscheduler-api-server
