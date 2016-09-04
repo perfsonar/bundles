@@ -64,13 +64,11 @@ Requires:       perfsonar-oppd-owamp
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-toolkit-install
 Requires:       perfsonar-meshconfig-agent
-Requires:       pscheduler-api-server
 Requires:       pscheduler-archiver-bitbucket
 Requires:       pscheduler-archiver-esmond
 Requires:       pscheduler-archiver-failer
 Requires:       pscheduler-archiver-syslog
 Requires:       pscheduler-core
-Requires:       pscheduler-database
 Requires:       pscheduler-server
 Requires:       pscheduler-test-idle
 Requires:       pscheduler-test-latency
@@ -79,6 +77,11 @@ Requires:       pscheduler-test-rtt
 Requires:       pscheduler-test-simplestream
 Requires:       pscheduler-test-throughput
 Requires:       pscheduler-test-trace
+Requires:       pscheduler-tool-bwctliperf2
+Requires:       pscheduler-tool-bwctliperf3
+Requires:       pscheduler-tool-bwctlping
+Requires:       pscheduler-tool-bwctltraceroute
+Requires:       pscheduler-tool-bwctltracepath
 Requires:       pscheduler-tool-iperf2
 Requires:       pscheduler-tool-owping
 Requires:       pscheduler-tool-paris-traceroute
