@@ -83,6 +83,7 @@ Requires:       pscheduler-tool-bwctlping
 Requires:       pscheduler-tool-bwctltraceroute
 Requires:       pscheduler-tool-bwctltracepath
 Requires:       pscheduler-tool-iperf2
+Requires:       pscheduler-tool-iperf3
 Requires:       pscheduler-tool-owping
 Requires:       pscheduler-tool-paris-traceroute
 Requires:       pscheduler-tool-ping
