@@ -1,4 +1,4 @@
-%define relnum 0.2.rc1 
+%define relnum 0.3.rc1 
 
 Version:        4.0
 Name:           perfsonar
