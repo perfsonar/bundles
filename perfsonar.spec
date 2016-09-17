@@ -1,9 +1,9 @@
-%define relnum 0.2.rc1 
+%define relnum 0.3.rc1 
 
-Version:        3.5.1
+Version:        4.0
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
-Release:        %{relnum}
+Release:        %{relnum}%{?dist}
 License:        Distributable, see LICENSE
 Group:          Applications/Communications
 URL:            http://www.perfsonar.net/
@@ -30,7 +30,7 @@ Group:          Applications/Communications
 Requires:       perfsonar-common
 Requires:       bwctl-client    >= 1.6.0
 Requires:       bwctl-server    >= 1.6.0
-Requires:       ndt-client
+Requires:       pscheduler-core
 Requires:       owamp-client    >= 3.5.0
 Requires:       owamp-server    >= 3.5.0
 Requires:       nuttcp
@@ -50,15 +50,45 @@ The basic command-line measurement tools used by perfSONAR for on-demand tests.
 Summary:        perfSONAR scheduled testing tools
 Group:          Applications/Communications
 Requires:       libperfsonar-regulartesting-perl
+Requires:       libperfsonar-pscheduler-perl
 Requires:       libperfsonar-toolkit-perl 
 Requires:       libperfsonar-perl 
+Requires:       httpd-wsgi-socket
 Requires:       perfsonar-tools
 Requires:       perfsonar-oppd-bwctl
 Requires:       perfsonar-oppd-owamp
 Requires:       perfsonar-lsregistrationdaemon
-Requires:       perfsonar-regulartesting
 Requires:       perfsonar-toolkit-install
 Requires:       perfsonar-meshconfig-agent
+Requires:       pscheduler-archiver-bitbucket
+Requires:       pscheduler-archiver-esmond
+Requires:       pscheduler-archiver-failer
+Requires:       pscheduler-archiver-syslog
+Requires:       pscheduler-core
+Requires:       pscheduler-server
+Requires:       pscheduler-test-idle
+Requires:       pscheduler-test-latency
+Requires:       pscheduler-test-latencybg
+Requires:       pscheduler-test-rtt
+Requires:       pscheduler-test-simplestream
+Requires:       pscheduler-test-throughput
+Requires:       pscheduler-test-trace
+Requires:       pscheduler-tool-bwctliperf2
+Requires:       pscheduler-tool-bwctliperf3
+Requires:       pscheduler-tool-bwctlping
+Requires:       pscheduler-tool-bwctltraceroute
+Requires:       pscheduler-tool-bwctltracepath
+Requires:       pscheduler-tool-iperf2
+Requires:       pscheduler-tool-iperf3
+Requires:       pscheduler-tool-owping
+Requires:       pscheduler-tool-paris-traceroute
+Requires:       pscheduler-tool-ping
+Requires:       pscheduler-tool-powstream
+Requires:       pscheduler-tool-simplestreamer
+Requires:       pscheduler-tool-sleep
+Requires:       pscheduler-tool-snooze
+Requires:       pscheduler-tool-tracepath
+Requires:       pscheduler-tool-traceroute
 Obsoletes:      perfSONAR-Bundles-TestPoint
 Provides:       perfSONAR-Bundles-TestPoint
 
@@ -69,8 +99,11 @@ Perform regularly scheduled perfSONAR measurements and store the results remotel
 Summary:                perfSONAR scheduled testing and storage tools
 Group:                  Applications/Communications
 Requires:               perfsonar-testpoint
-Requires:               esmond >= 2.0
+Requires:               perfsonar-toolkit-compat-database
+Requires:               esmond >= 2.1
+Requires:               esmond-database-postgresql95
 Requires:               perfsonar-toolkit-install
+Requires(post):         perfsonar-toolkit-compat-database
 Obsoletes:              perfSONAR-Bundles-Core
 Provides:               perfSONAR-Bundles-Core
 
@@ -87,8 +120,10 @@ Requires:       libperfsonar-perl
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-meshconfig-jsonbuilder
 Requires:       perfsonar-meshconfig-guiagent
+Requires:       perfsonar-toolkit-compat-database
 Requires:       maddash
-Requires:       esmond >= 2.0
+Requires:       esmond >= 2.1
+Requires:       esmond-database-postgresql95
 Obsoletes:      perfSONAR-Bundles-CentralManagement
 Provides:       perfSONAR-Bundles-CentralManagement
 
@@ -109,12 +144,41 @@ echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+#Restart pscheduler daemons to make sure they got all tests, tools, and archivers
+%if 0%{?el7}
+systemctl restart httpd &>/dev/null || :
+systemctl restart pscheduler-archiver &>/dev/null || :
+systemctl restart pscheduler-runner &>/dev/null || :
+systemctl restart pscheduler-scheduler &>/dev/null || :
+systemctl restart pscheduler-ticker &>/dev/null || :
+%else
+/sbin/service httpd restart &>/dev/null || :
+/sbin/service pscheduler-archiver restart &>/dev/null || :
+/sbin/service pscheduler-runner restart &>/dev/null || :
+/sbin/service pscheduler-scheduler restart &>/dev/null || :
+/sbin/service pscheduler-ticker restart &>/dev/null || :
+%endif
 
 %post core
 echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+#configure database
+if [ $1 -eq 1 ] ; then
+    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
+    /sbin/service httpd restart &>/dev/null || :
+fi
+
+%post centralmanagement
+echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
+echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+chmod 644 /var/lib/perfsonar/bundles/bundle_type
+chmod 644 /var/lib/perfsonar/bundles/bundle_version
+if [ $1 -eq 1 ] ; then
+    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
+fi
+
 
 %files
 %defattr(0644,perfsonar,perfsonar,0755)

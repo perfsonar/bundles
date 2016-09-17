@@ -10,18 +10,19 @@ Vcs-Browser: https://github.com/perfsonar/bundles
 
 Package: perfsonar-tools
 Architecture: all
-Depends: bwctl-client, bwctl-server, ndt-client,
+Depends: bwctl-client, bwctl-server, pscheduler-core,
  owamp-client, owamp-server, nuttcp, iperf, iperf3,
  iputils-ping, iputils-tracepath, traceroute, paris-traceroute,
  perfsonar-common, ${misc:Depends}
 Description: perfSONAR tools metapackage
  perfSONAR combines a number of measurement tools and services.
  .
- perfSONAR tools metapackage installs bwctl and owamp server.
+ perfSONAR tools metapackage installs bwctl, owamp and pscheduler
+ servers.
  .
- This type of installation also contains the bwctl, owamp and ndt
- command-line clients so that you may run one-time tests to
- other servers.
+ This type of installation also contains the bwctl, owamp and
+ pscheduler command-line clients so that you may run one-time tests
+ to other servers.
 
 Package: perfsonar-testpoint
 Architecture: all
@@ -38,9 +39,8 @@ Description: perfSONAR testpoint metapackage
  contains the mesh-config agent so that you can easily make your
  testpoint participate in a testing mesh.
  .
- This type of installation also contains the bwctl, owamp and ndt
- command-line clients so that you may run one-time tests to
- other servers.
+ This type of installation also contains the perfsonar-tools
+ package so that you may run one-time tests to other servers.
 
 Package: perfsonar-core
 Architecture: all
@@ -53,11 +53,8 @@ Description: perfSONAR core metapackage - beta
  perfSONAR-PS Simple Lookup Service, run regular tests and
  a Measurement Archive for storing results.
  .
- This type of installation also contains the bwctl, owamp and ndt
- command-line clients so that you may run one-time tests to
- other servers.
- .
- This package is currently a beta release.
+ This type of installation also contains the perfsonar-testpoint
+ package so that you may run one-time tests to other servers.
 
 Package: perfsonar-centralmanagement
 Architecture: all
@@ -69,5 +66,3 @@ Description: perfSONAR central management metapackage - beta
  perfSONAR central metapackage installs Mesh configuration tools,
  MaDDash framework for scheduling service checks and displaying results,
  and a Measurement Archive for storing results.
- .
- This package is currently a beta release.
