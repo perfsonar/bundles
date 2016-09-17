@@ -3,7 +3,7 @@ Upstream-Name: perfsonar-tools
 Source: https://github.com/perfsonar/bundles
 
 Files: *
-Copyright: 2014 GEANT
+Copyright: 2014-2016 GÉANT
 License: Apache-2.0
 
 License: Apache-2.0
