@@ -1,9 +1,9 @@
-perfsonar-bundles (4.0~3.rc1-1) UNRLEASED; urgency=low
+perfsonar-bundles (4.0~3.rc1) UNRLEASED; urgency=low
 
   * Adding pscheduler-core to the perfsonar-tools bundle.
   * Removing NDT dependency.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sat, 17 Sep 2016 16:35:19 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sat, 17 Sep 2016 16:46:05 +0000
 
 perfsonar-bundles (3.5.1) perfsonar-jessie-release; urgency=low
 
