@@ -1,16 +1,15 @@
-perfsonar-bundles (4.0~3.rc1~bpo70+1) UNRLEASED; urgency=low
+perfsonar-bundles (4.0~3.rc1~bpo70+1) perfsonar-wheezy-staging; urgency=low
+
+  * Backport to Wheezy.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 27 Sep 2016 19:43:17 +0000
+
+perfsonar-bundles (4.0~3.rc1) perfsonar-jessie-staging; urgency=low
 
   * Adding pscheduler-core to the perfsonar-tools bundle.
   * Removing NDT dependency.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sat, 17 Sep 2016 16:47:59 +0000
-
-perfsonar-bundles (4.0~3.rc1-1) UNRLEASED; urgency=low
-
-  * Adding pscheduler-core to the perfsonar-tools bundle.
-  * Removing NDT dependency.
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sat, 17 Sep 2016 16:46:05 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 27 Sep 2016 19:25:54 +0000
 
 perfsonar-bundles (3.5.1) perfsonar-jessie-release; urgency=low
 
