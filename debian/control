@@ -29,7 +29,7 @@ Architecture: all
 Depends: perfsonar-tools, perfsonar-lsregistrationdaemon, 
  perfsonar-regulartesting, perfsonar-oppd-bwctl,
  perfsonar-oppd-owamp, perfsonar-meshconfig-agent,
- ${misc:Depends}
+ pscheduler-bundle-full, ${misc:Depends}
 Description: perfSONAR testpoint metapackage
  perfSONAR combines a number of measurement tools and services.
  .
