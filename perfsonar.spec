@@ -1,4 +1,4 @@
-%define relnum 0.3.rc1 
+%define relnum 0.4.rc1 
 
 Version:        4.0
 Name:           perfsonar
@@ -80,6 +80,7 @@ Requires:       pscheduler-tool-bwctltraceroute
 Requires:       pscheduler-tool-bwctltracepath
 Requires:       pscheduler-tool-iperf2
 Requires:       pscheduler-tool-iperf3
+Requires:       pscheduler-tool-nuttcp
 Requires:       pscheduler-tool-owping
 Requires:       pscheduler-tool-paris-traceroute
 Requires:       pscheduler-tool-ping
