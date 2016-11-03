@@ -1,4 +1,5 @@
-%define relnum 0.3.rc1 
+%define relnum 0.5.rc2 
+%define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
 Version:        4.0
 Name:           perfsonar
@@ -60,35 +61,8 @@ Requires:       perfsonar-oppd-owamp
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-toolkit-install
 Requires:       perfsonar-meshconfig-agent
-Requires:       pscheduler-archiver-bitbucket
-Requires:       pscheduler-archiver-esmond
-Requires:       pscheduler-archiver-failer
-Requires:       pscheduler-archiver-syslog
-Requires:       pscheduler-core
-Requires:       pscheduler-server
-Requires:       pscheduler-test-idle
-Requires:       pscheduler-test-latency
-Requires:       pscheduler-test-latencybg
-Requires:       pscheduler-test-rtt
-Requires:       pscheduler-test-simplestream
-Requires:       pscheduler-test-throughput
-Requires:       pscheduler-test-trace
-Requires:       pscheduler-tool-bwctliperf2
-Requires:       pscheduler-tool-bwctliperf3
-Requires:       pscheduler-tool-bwctlping
-Requires:       pscheduler-tool-bwctltraceroute
-Requires:       pscheduler-tool-bwctltracepath
-Requires:       pscheduler-tool-iperf2
-Requires:       pscheduler-tool-iperf3
-Requires:       pscheduler-tool-owping
-Requires:       pscheduler-tool-paris-traceroute
-Requires:       pscheduler-tool-ping
-Requires:       pscheduler-tool-powstream
-Requires:       pscheduler-tool-simplestreamer
-Requires:       pscheduler-tool-sleep
-Requires:       pscheduler-tool-snooze
-Requires:       pscheduler-tool-tracepath
-Requires:       pscheduler-tool-traceroute
+Requires:       pscheduler-bundle-full
+Requires(post): perfsonar-toolkit-install
 Obsoletes:      perfSONAR-Bundles-TestPoint
 Provides:       perfSONAR-Bundles-TestPoint
 
@@ -144,6 +118,11 @@ echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+#copy over limits if file not exist or does not contain localif reference
+#before 4.0 final just check for file existence
+(grep -q "localif" /etc/pscheduler/limits.conf 2> /dev/null) || cp -f %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
+
+
 #Restart pscheduler daemons to make sure they got all tests, tools, and archivers
 %if 0%{?el7}
 systemctl restart httpd &>/dev/null || :
