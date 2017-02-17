@@ -1,6 +1,6 @@
 # perfSONAR Bundles
 
-This repository contains the files required to build perfSONAR package bundles such as the Level 1 and Level 2 install.
+This repository contains the files required to build perfSONAR package bundles such as perfsonar-tools, perfsonar-testpoint, perfsonar-core, etc.
 
 ##Building the RPM
 
