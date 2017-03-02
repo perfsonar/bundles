@@ -118,6 +118,11 @@ echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+%if 0%{?el7}
+%else
+    #create symlink so we don't litter /etc/security/limits.d with .rpmsave files and similar
+    ln -s /etc/perfsonar/pscheduler_ulimit.conf /etc/security/limits.d/pscheduler.conf 2> /dev/null
+%endif
 #copy over limits if file not exist or does not contain localif reference
 #before 4.0 final just check for file existence
 (grep -q "localif" /etc/pscheduler/limits.conf 2> /dev/null) || cp -f %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
