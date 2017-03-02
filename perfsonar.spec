@@ -121,7 +121,7 @@ chmod 644 /var/lib/perfsonar/bundles/bundle_version
 %if 0%{?el7}
 %else
     #create symlink so we don't litter /etc/security/limits.d with .rpmsave files and similar
-    ln -s /etc/perfsonar/pscheduler_ulimit.conf /etc/security/limits.d/pscheduler.conf 2> /dev/null
+    ln -sf /etc/perfsonar/toolkit/pscheduler_ulimit.conf /etc/security/limits.d/pscheduler.conf 2> /dev/null
 %endif
 #copy over default limits if file does not already exist
 cp -n %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
