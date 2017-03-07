@@ -1,4 +1,4 @@
-%define relnum 0.6.rc3 
+%define relnum 0.7.rc3 
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
 Version:        4.0
