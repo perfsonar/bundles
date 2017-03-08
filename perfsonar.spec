@@ -1,4 +1,4 @@
-%define relnum 0.6.rc3 
+%define relnum 0.7.rc3 
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
 Version:        4.0
@@ -118,9 +118,13 @@ echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
-#copy over limits if file not exist or does not contain localif reference
-#before 4.0 final just check for file existence
-(grep -q "localif" /etc/pscheduler/limits.conf 2> /dev/null) || cp -f %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
+%if 0%{?el7}
+%else
+    #create symlink so we don't litter /etc/security/limits.d with .rpmsave files and similar
+    ln -sf /etc/perfsonar/toolkit/pscheduler_ulimit.conf /etc/security/limits.d/pscheduler.conf 2> /dev/null
+%endif
+#copy over default limits if file does not already exist
+cp -n %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
 
 
 #Restart pscheduler daemons to make sure they got all tests, tools, and archivers
