@@ -22,6 +22,7 @@ set -e
 case "$1" in
     remove)
         rm -rf /var/lib/perfsonar/bundles
+        rm -f /etc/pscheduler/limits.conf
     ;;
 
     purge|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

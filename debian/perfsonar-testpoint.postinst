@@ -29,6 +29,9 @@ case "$1" in
     chmod 644 /var/lib/perfsonar/bundles/bundle_type
     chmod 644 /var/lib/perfsonar/bundles/bundle_version
 
+    # Install pscheduler.limits
+    cp -n /etc/perfsonar/toolkit/default_service_configs/pscheduler_limits.conf /etc/pscheduler/limits.conf
+
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
