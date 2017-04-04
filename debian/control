@@ -44,7 +44,7 @@ Description: perfSONAR testpoint metapackage
 Package: perfsonar-core
 Architecture: all
 Depends: perfsonar-testpoint, esmond, ${misc:Depends}
-Description: perfSONAR core metapackage - beta
+Description: perfSONAR core metapackage
  perfSONAR combines a number of measurement tools and services.
  .
  perfSONAR core metapackage installs bwctl and owamp server
@@ -59,7 +59,7 @@ Package: perfsonar-centralmanagement
 Architecture: all
 Depends: perfsonar-meshconfig-jsonbuilder, perfsonar-meshconfig-guiagent,
  perfsonar-lsregistrationdaemon, maddash, esmond, ${misc:Depends}
-Description: perfSONAR central management metapackage - beta
+Description: perfSONAR central management metapackage
  perfSONAR combines a number of measurement tools and services.
  .
  perfSONAR central metapackage installs Mesh configuration tools,
