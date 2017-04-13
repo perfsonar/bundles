@@ -1,12 +1,12 @@
-perfsonar-bundles (4.0~7.rc3+2) perfsonar-jessie-release; urgency=low
+perfsonar-bundles (4.0) perfsonar-jessie-release; urgency=low
 
   * Adding pscheduler-core to the perfsonar-tools bundle.
   * Adding pscheduler-bundle-full to the perfsonar-testpoint bundle.
   * Removing perfsonar-regulartesting from the perfsonar-testpoint bundle.
-  * Removing NDT dependency.
+  * Removing NDT.
   * Removal of all -beta metion from 3.5 packages.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 06 Apr 2017 15:14:54 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 13 Apr 2017 17:35:15 +0000
 
 perfsonar-bundles (3.5.1) perfsonar-jessie-release; urgency=low
 
