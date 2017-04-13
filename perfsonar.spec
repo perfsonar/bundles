@@ -1,4 +1,4 @@
-%define relnum 0.7.rc3 
+%define relnum 1 
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
 Version:        4.0
@@ -114,7 +114,7 @@ chown perfsonar:perfsonar /var/log/perfsonar
 mkdir -p /var/lib/perfsonar/bundles
 
 %post testpoint
-echo "test-point" > /var/lib/perfsonar/bundles/bundle_type
+echo "perfsonar-testpoint" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
