@@ -115,7 +115,7 @@ mkdir -p /var/lib/perfsonar/bundles
 
 %post testpoint
 echo "perfsonar-testpoint" > /var/lib/perfsonar/bundles/bundle_type
-echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
 %if 0%{?el7}
@@ -144,7 +144,7 @@ systemctl restart pscheduler-ticker &>/dev/null || :
 
 %post core
 echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
-echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
 #configure database
@@ -155,7 +155,7 @@ fi
 
 %post centralmanagement
 echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
-echo "%{version}" > /var/lib/perfsonar/bundles/bundle_version
+echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
 if [ $1 -eq 1 ] ; then
