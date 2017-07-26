@@ -1,3 +1,9 @@
+perfsonar-bundles (4.0.1~1.rc1) perfsonar-jessie-release; urgency=low
+
+  * New upstream version.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 27 Jul 2017 01:53:43 +0200
+
 perfsonar-bundles (4.0) perfsonar-jessie-release; urgency=low
 
   * Adding pscheduler-core to the perfsonar-tools bundle.
