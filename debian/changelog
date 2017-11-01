@@ -1,8 +1,8 @@
-perfsonar-bundles (4.0.2~1.b1) perfsonar-jessie-staging; urgency=low
+perfsonar-bundles (4.0.2) perfsonar-jessie-release; urgency=low
 
   * New upstream version.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 29 Sep 2017 11:45:11 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 01 Nov 2017 18:32:00 +0000
 
 perfsonar-bundles (4.0.1) perfsonar-jessie-release; urgency=low
 
