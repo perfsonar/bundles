@@ -1,7 +1,7 @@
 %define relnum 1
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
-Version:        4.0.2
+Version:        4.0.2.3
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
 Release:        %{relnum}%{?dist}
@@ -118,17 +118,18 @@ echo "perfsonar-testpoint" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
-%if 0%{?el7}
-%else
-    #create symlink so we don't litter /etc/security/limits.d with .rpmsave files and similar
-    ln -sf /etc/perfsonar/toolkit/pscheduler_ulimit.conf /etc/security/limits.d/pscheduler.conf 2> /dev/null
-%endif
+#create symlink so we don't litter /etc/security/limits.d with .rpmsave files and similar
+ln -sf /etc/perfsonar/toolkit/perfsonar_ulimit.conf /etc/security/limits.d/perfsonar.conf 2> /dev/null
+mkdir -p /etc/systemd/system/httpd.service.d
+ln -sf /etc/perfsonar/toolkit/perfsonar_ulimit_apache.conf /etc/systemd/system/httpd.service.d/
+
 #copy over default limits if file does not already exist
 cp -n %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
 
 
 #Restart pscheduler daemons to make sure they got all tests, tools, and archivers
 %if 0%{?el7}
+systemctl daemon-reload &>/dev/null || :
 systemctl restart httpd &>/dev/null || :
 systemctl restart pscheduler-archiver &>/dev/null || :
 systemctl restart pscheduler-runner &>/dev/null || :
