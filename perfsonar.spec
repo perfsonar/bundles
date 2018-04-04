@@ -86,7 +86,6 @@ Summary:        Centrally manage perfSONAR nodes
 Group:          Applications/Communications
 Requires:       libperfsonar-esmond-perl
 Requires:       libperfsonar-sls-perl
-Requires:       libperfsonar-toolkit-perl 
 Requires:       libperfsonar-perl 
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-psconfig-maddash
