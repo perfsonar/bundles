@@ -89,6 +89,7 @@ Requires:       libperfsonar-sls-perl
 Requires:       libperfsonar-perl 
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-psconfig-maddash
+Requires:       perfsonar-psconfig-publisher
 Requires:       perfsonar-toolkit-compat-database
 Requires:       maddash
 Requires:       esmond >= 2.1
