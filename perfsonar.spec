@@ -1,7 +1,7 @@
-%define relnum 1
+%define relnum 0.0.a1
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
-Version:        4.0.2.3
+Version:        4.1
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
 Release:        %{relnum}%{?dist}
@@ -50,17 +50,14 @@ The basic command-line measurement tools used by perfSONAR for on-demand tests.
 %package testpoint
 Summary:        perfSONAR scheduled testing tools
 Group:          Applications/Communications
-Requires:       libperfsonar-regulartesting-perl
 Requires:       libperfsonar-pscheduler-perl
 Requires:       libperfsonar-toolkit-perl 
 Requires:       libperfsonar-perl 
 Requires:       httpd-wsgi-socket
 Requires:       perfsonar-tools
-Requires:       perfsonar-oppd-bwctl
-Requires:       perfsonar-oppd-owamp
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-toolkit-install
-Requires:       perfsonar-meshconfig-agent
+Requires:       perfsonar-psconfig-pscheduler
 Requires:       pscheduler-bundle-full
 Requires(post): perfsonar-toolkit-install
 Obsoletes:      perfSONAR-Bundles-TestPoint
@@ -89,11 +86,9 @@ Summary:        Centrally manage perfSONAR nodes
 Group:          Applications/Communications
 Requires:       libperfsonar-esmond-perl
 Requires:       libperfsonar-sls-perl
-Requires:       libperfsonar-toolkit-perl 
 Requires:       libperfsonar-perl 
 Requires:       perfsonar-lsregistrationdaemon
-Requires:       perfsonar-meshconfig-jsonbuilder
-Requires:       perfsonar-meshconfig-guiagent
+Requires:       perfsonar-psconfig-maddash
 Requires:       perfsonar-toolkit-compat-database
 Requires:       maddash
 Requires:       esmond >= 2.1
