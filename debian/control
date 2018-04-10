@@ -58,8 +58,7 @@ Description: perfSONAR core metapackage
 Package: perfsonar-centralmanagement
 Architecture: all
 Depends: perfsonar-lsregistrationdaemon, maddash, esmond (>= 2.1),
- perfsonar-psconfig-maddash, perfsonar-psconfig-maddash-checks,
- perfsonar-psconfig-maddash-visualizations,  ${misc:Depends}
+ perfsonar-psconfig-maddash, ${misc:Depends}
 Description: perfSONAR central management metapackage
  perfSONAR combines a number of measurement tools and services.
  .
