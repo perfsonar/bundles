@@ -27,7 +27,7 @@ Description: perfSONAR tools metapackage
 Package: perfsonar-testpoint
 Architecture: all
 Depends: perfsonar-tools, perfsonar-lsregistrationdaemon, 
- perfsonar-oppd-bwctl, perfsonar-oppd-owamp, perfsonar-meshconfig-agent,
+ perfsonar-meshconfig-agent,
  pscheduler-bundle-full, perfsonar-toolkit-install, ${misc:Depends}
 Description: perfSONAR testpoint metapackage
  perfSONAR combines a number of measurement tools and services.
