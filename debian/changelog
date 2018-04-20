@@ -1,3 +1,11 @@
+perfsonar-bundles (4.0.2.2) perfsonar-jessie-release; urgency=low
+
+  * Readding perfsonar-testpoint bundle dependency to perfsonar-oppd-bwctl and
+    to perfsonar-oppd-owamp so not to change the 4.0 release.  Will be
+    suppressed in 4.1
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 20 Apr 2018 19:24:02 +0000
+
 perfsonar-bundles (4.0.2.1) perfsonar-jessie-release; urgency=low
 
   * Removing perfsonar-testpoint bundle dependency to perfsonar-oppd-bwctl and
