@@ -29,8 +29,6 @@ Package common to all perfsonar tools. Creates users, groups, logging directorie
 Summary:        perfSONAR active measurement tools
 Group:          Applications/Communications
 Requires:       perfsonar-common
-Requires:       bwctl-client    >= 1.6.0
-Requires:       bwctl-server    >= 1.6.0
 Requires:       pscheduler-core
 Requires:       owamp-client    >= 3.5.0
 Requires:       owamp-server    >= 3.5.0
