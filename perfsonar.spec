@@ -98,6 +98,20 @@ Provides:       perfSONAR-Bundles-CentralManagement
 %description centralmanagement
 Manage, store and visualize results from multiple nodes running perfSONAR measurements. 
 
+%package bwctl-compat
+Summary:                perfSONAR BWCTL backward compatibility package
+Group:                  Applications/Communications
+Requires:               bwctl
+Requires:               pscheduler-tool-bwctliperf2
+Requires:               pscheduler-tool-bwctliperf3
+Requires:               pscheduler-tool-bwctlping
+Requires:               pscheduler-tool-bwctltracepath
+Requires:               pscheduler-tool-bwctltraceroute
+
+%description bwctl-compat
+Installs bwctl/client server and related pScheduler plug-ins for backward compatibility 
+with pre-4.0 hosts or those that block the pScheduler port. 
+
 %pre common
 /usr/sbin/groupadd perfsonar 2> /dev/null || :
 /usr/sbin/useradd -g perfsonar -r -s /sbin/nologin -c "perfSONAR User" -d /tmp perfsonar 2> /dev/null || :
