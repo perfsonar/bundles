@@ -171,10 +171,6 @@ if [ $1 -eq 1 ] ; then
     /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
 fi
 
-
-%files
-%defattr(0644,perfsonar,perfsonar,0755)
-
 %files tools
 %defattr(0644,perfsonar,perfsonar,0755)
 
@@ -188,6 +184,9 @@ fi
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files common
+%defattr(0644,perfsonar,perfsonar,0755)
+
+%files bwctl-compat
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
