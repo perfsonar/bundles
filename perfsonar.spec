@@ -5,7 +5,7 @@ Version:        4.1
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
 Release:        %{relnum}%{?dist}
-License:        Distributable, see LICENSE
+License:        ASL 2.0
 Group:          Applications/Communications
 URL:            http://www.perfsonar.net/
 BuildArch:      noarch
@@ -172,21 +172,27 @@ if [ $1 -eq 1 ] ; then
 fi
 
 %files tools
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files testpoint
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files core
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files centralmanagement
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files common
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files bwctl-compat
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
