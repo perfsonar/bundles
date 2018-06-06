@@ -5,7 +5,7 @@ Version:        4.1
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
 Release:        %{relnum}%{?dist}
-License:        Distributable, see LICENSE
+License:        ASL 2.0
 Group:          Applications/Communications
 URL:            http://www.perfsonar.net/
 BuildArch:      noarch
@@ -29,8 +29,6 @@ Package common to all perfsonar tools. Creates users, groups, logging directorie
 Summary:        perfSONAR active measurement tools
 Group:          Applications/Communications
 Requires:       perfsonar-common
-Requires:       bwctl-client    >= 1.6.0
-Requires:       bwctl-server    >= 1.6.0
 Requires:       pscheduler-core
 Requires:       owamp-client    >= 3.5.0
 Requires:       owamp-server    >= 3.5.0
@@ -89,6 +87,7 @@ Requires:       libperfsonar-sls-perl
 Requires:       libperfsonar-perl 
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-psconfig-maddash
+Requires:       perfsonar-psconfig-publisher
 Requires:       perfsonar-toolkit-compat-database
 Requires:       maddash
 Requires:       esmond >= 2.1
@@ -98,6 +97,20 @@ Provides:       perfSONAR-Bundles-CentralManagement
 
 %description centralmanagement
 Manage, store and visualize results from multiple nodes running perfSONAR measurements. 
+
+%package bwctl-compat
+Summary:                perfSONAR BWCTL backward compatibility package
+Group:                  Applications/Communications
+Requires:               bwctl
+Requires:               pscheduler-tool-bwctliperf2
+Requires:               pscheduler-tool-bwctliperf3
+Requires:               pscheduler-tool-bwctlping
+Requires:               pscheduler-tool-bwctltracepath
+Requires:               pscheduler-tool-bwctltraceroute
+
+%description bwctl-compat
+Installs bwctl/client server and related pScheduler plug-ins for backward compatibility 
+with pre-4.0 hosts or those that block the pScheduler port. 
 
 %pre common
 /usr/sbin/groupadd perfsonar 2> /dev/null || :
@@ -158,23 +171,28 @@ if [ $1 -eq 1 ] ; then
     /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
 fi
 
-
-%files
-%defattr(0644,perfsonar,perfsonar,0755)
-
 %files tools
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files testpoint
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files core
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files centralmanagement
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files common
+%license LICENSE
+%defattr(0644,perfsonar,perfsonar,0755)
+
+%files bwctl-compat
+%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
