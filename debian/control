@@ -66,3 +66,16 @@ Description: perfSONAR central management metapackage
  perfSONAR central metapackage installs Mesh configuration tools,
  MaDDash framework for scheduling service checks and displaying results,
  and a Measurement Archive for storing results.
+
+Package: perfsonar-bwctl-compat
+Architecture: all
+Depends: bwctl-client (>= 1.6.0), bwctl-server (>= 1.6.0),
+ pscheduler-tool-bwctliperf2, pscheduler-tool-bwctliperf3,
+ pscheduler-tool-bwctlping, pscheduler-tool-bwctltracepath,
+ pscheduler-tool-bwctltraceroute, ${misc:Depends}
+Description: perfSONAR BWCTL backward compatibility package
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR bwctl metapackage installs bwctl server and related
+ pScheduler plug-ins for backward compatibility with pre-4.0
+ hosts or those that block the pScheduler port.
