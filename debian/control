@@ -10,17 +10,17 @@ Vcs-Browser: https://github.com/perfsonar/bundles
 
 Package: perfsonar-tools
 Architecture: all
-Depends: bwctl-client (>= 1.6.0), bwctl-server (>= 1.6.0), pscheduler-core,
+Depends: pscheduler-core,
  owamp-client (>= 3.5.0), owamp-server (>= 3.5.0), nuttcp, iperf, iperf3,
  iputils-ping, iputils-tracepath, traceroute, paris-traceroute,
  perfsonar-common, ${misc:Depends}
 Description: perfSONAR tools metapackage
  perfSONAR combines a number of measurement tools and services.
  .
- perfSONAR tools metapackage installs bwctl, owamp and pscheduler
+ perfSONAR tools metapackage installs owamp and pscheduler
  servers.
  .
- This type of installation also contains the bwctl, owamp and
+ This type of installation also contains the owamp and
  pscheduler command-line clients so that you may run one-time tests
  to other servers.
 
@@ -32,7 +32,7 @@ Depends: perfsonar-tools, perfsonar-lsregistrationdaemon,
 Description: perfSONAR testpoint metapackage
  perfSONAR combines a number of measurement tools and services.
  .
- perfSONAR testpoint metapackage installs bwctl and owamp server
+ perfSONAR testpoint metapackage installs owamp server
  along with tools to publish the location of these services to the
  perfSONAR Simple Lookup Service and run regular tests. It also
  contains the mesh-config agent so that you can easily make your
@@ -48,7 +48,7 @@ Depends: perfsonar-testpoint, esmond (>= 2.1),
 Description: perfSONAR core metapackage
  perfSONAR combines a number of measurement tools and services.
  .
- perfSONAR core metapackage installs bwctl and owamp server
+ perfSONAR core metapackage installs owamp server
  along with tools to publish the location of these services to the
  perfSONAR-PS Simple Lookup Service, run regular tests and
  a Measurement Archive for storing results.
