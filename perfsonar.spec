@@ -32,6 +32,8 @@ Requires:       perfsonar-common
 Requires:       pscheduler-core
 Requires:       owamp-client    >= 3.5.0
 Requires:       owamp-server    >= 3.5.0
+Requires:       twamp-client
+Requires:       twamp-server
 Requires:       nuttcp
 Requires:       iperf
 Requires:       iperf3
