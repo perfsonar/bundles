@@ -174,27 +174,21 @@ if [ $1 -eq 1 ] ; then
 fi
 
 %files tools
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files testpoint
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files core
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files centralmanagement
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files common
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files bwctl-compat
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
