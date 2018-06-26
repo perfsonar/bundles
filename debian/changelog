@@ -1,8 +1,10 @@
-perfsonar-bundles (4.1~0.a1) UNRELEASED; urgency=low
+perfsonar-bundles (4.1~1.b1) perfsonar-jessie-staging; urgency=low
 
   * New upstream version.
+  * Adding perfsonar-bwctl-compat package for BWCTL backward compatibility
+  * Replacing perfsonar-meshconfig packages by perfsonar-psconfig
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 04 Apr 2018 11:30:54 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 26 Jun 2018 19:47:18 +0000
 
 perfsonar-bundles (4.0.2) perfsonar-jessie-release; urgency=low
 
