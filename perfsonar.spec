@@ -1,4 +1,4 @@
-%define relnum 0.0.a1
+%define relnum 0.1.b1
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
 Version:        4.1
@@ -32,6 +32,8 @@ Requires:       perfsonar-common
 Requires:       pscheduler-core
 Requires:       owamp-client    >= 3.5.0
 Requires:       owamp-server    >= 3.5.0
+Requires:       twamp-client
+Requires:       twamp-server
 Requires:       nuttcp
 Requires:       iperf
 Requires:       iperf3
@@ -172,27 +174,21 @@ if [ $1 -eq 1 ] ; then
 fi
 
 %files tools
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files testpoint
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files core
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files centralmanagement
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files common
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files bwctl-compat
-%license LICENSE
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
