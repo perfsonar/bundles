@@ -1,10 +1,12 @@
-perfsonar-bundles (4.1~1.b1) perfsonar-jessie-staging; urgency=low
+perfsonar-bundles (4.1) perfsonar-release; urgency=low
 
   * New upstream version.
-  * Adding perfsonar-bwctl-compat package for BWCTL backward compatibility
+  * Adding twamp-client and twamp-server to perfsonar-tools
+  * Adding perfsonar-bwctl-compat package for BWCTL backward compatibility and
+    moving BWCTL dependencies to this new package.
   * Replacing perfsonar-meshconfig packages by perfsonar-psconfig
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 26 Jun 2018 19:47:18 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Mon, 13 Aug 2018 18:40:51 +0000
 
 perfsonar-bundles (4.0.2) perfsonar-jessie-release; urgency=low
 
