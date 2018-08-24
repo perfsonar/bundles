@@ -12,8 +12,8 @@ Package: perfsonar-tools
 Architecture: all
 Depends: pscheduler-core,
  owamp-client (>= 3.5.0), owamp-server (>= 3.5.0), nuttcp, iperf, iperf3,
- iputils-ping, iputils-tracepath, traceroute, paris-traceroute,
- perfsonar-common, ${misc:Depends}
+ twamp-client, twamp-server, iputils-ping, iputils-tracepath, traceroute,
+ paris-traceroute, perfsonar-common, ${misc:Depends}
 Description: perfSONAR tools metapackage
  perfSONAR combines a number of measurement tools and services.
  .
