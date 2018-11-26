@@ -1,7 +1,7 @@
 %define relnum 1
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
-Version:        4.1.2
+Version:        4.1.4
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
 Release:        %{relnum}%{?dist}
