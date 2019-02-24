@@ -1,0 +1,81 @@
+Source: perfsonar-bundles
+Section: net
+Priority: optional
+Maintainer: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://www.perfsonar.net/
+Vcs-Git: https://github.com/perfsonar/bundles.git
+Vcs-Browser: https://github.com/perfsonar/bundles
+
+Package: perfsonar-tools
+Architecture: all
+Depends: pscheduler-core,
+ owamp-client (>= 3.5.0), owamp-server (>= 3.5.0), nuttcp, iperf, iperf3,
+ twamp-client, twamp-server, iputils-ping, iputils-tracepath, traceroute,
+ paris-traceroute, perfsonar-common, ${misc:Depends}
+Description: perfSONAR tools metapackage
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR tools metapackage installs owamp and pscheduler
+ servers.
+ .
+ This type of installation also contains the owamp and
+ pscheduler command-line clients so that you may run one-time tests
+ to other servers.
+
+Package: perfsonar-testpoint
+Architecture: all
+Depends: perfsonar-tools, perfsonar-lsregistrationdaemon, 
+ pscheduler-bundle-full, perfsonar-toolkit-install,
+ perfsonar-psconfig-pscheduler, ${misc:Depends}
+Description: perfSONAR testpoint metapackage
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR testpoint metapackage installs owamp server
+ along with tools to publish the location of these services to the
+ perfSONAR Simple Lookup Service and run regular tests. It also
+ contains the mesh-config agent so that you can easily make your
+ testpoint participate in a testing mesh.
+ .
+ This type of installation also contains the perfsonar-tools
+ package so that you may run one-time tests to other servers.
+
+Package: perfsonar-core
+Architecture: all
+Depends: perfsonar-testpoint, esmond (>= 2.1),
+ perfsonar-toolkit-compat-database, ${misc:Depends}
+Description: perfSONAR core metapackage
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR core metapackage installs owamp server
+ along with tools to publish the location of these services to the
+ perfSONAR-PS Simple Lookup Service, run regular tests and
+ a Measurement Archive for storing results.
+ .
+ This type of installation also contains the perfsonar-testpoint
+ package so that you may run one-time tests to other servers.
+
+Package: perfsonar-centralmanagement
+Architecture: all
+Depends: perfsonar-lsregistrationdaemon, maddash, esmond (>= 2.1),
+ perfsonar-psconfig-maddash, perfsonar-psconfig-publisher, ${misc:Depends}
+Description: perfSONAR central management metapackage
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR central metapackage installs Mesh configuration tools,
+ MaDDash framework for scheduling service checks and displaying results,
+ and a Measurement Archive for storing results.
+
+Package: perfsonar-bwctl-compat
+Architecture: all
+Depends: bwctl-client (>= 1.6.0), bwctl-server (>= 1.6.0),
+ pscheduler-tool-bwctliperf2, pscheduler-tool-bwctliperf3,
+ pscheduler-tool-bwctlping, pscheduler-tool-bwctltracepath,
+ pscheduler-tool-bwctltraceroute, ${misc:Depends}
+Description: perfSONAR BWCTL backward compatibility package
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR bwctl metapackage installs bwctl server and related
+ pScheduler plug-ins for backward compatibility with pre-4.0
+ hosts or those that block the pScheduler port.
