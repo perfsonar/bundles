@@ -1,10 +1,11 @@
-%define relnum 1
+%define perfsonar_auto_version 4.1.6
+%define perfsonar_auto_relnum 1
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
-Version:        4.1.5
+Version:        %{perfsonar_auto_version}
 Name:           perfsonar
 Summary:        Bundles of the perfSONAR Software
-Release:        %{relnum}%{?dist}
+Release:        %{perfsonar_auto_relnum}%{?dist}
 License:        ASL 2.0
 Group:          Applications/Communications
 URL:            http://www.perfsonar.net/
