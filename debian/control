@@ -1,7 +1,9 @@
 Source: perfsonar-bundles
 Section: net
 Priority: optional
-Maintainer: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Maintainer: perfSONAR developers <debian@perfsonar.net>
+Uploaders: Antoine Delvaux <antoine.delvaux@man.poznan.pl>,
+ Valentin Vidic <Valentin.Vidic@CARNet.hr>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 Homepage: http://www.perfsonar.net/
