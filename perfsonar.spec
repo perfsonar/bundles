@@ -116,7 +116,7 @@ Installs bwctl/client server and related pScheduler plug-ins for backward compat
 with pre-4.0 hosts or those that block the pScheduler port. 
 
 %pre common
-/usr/sbin/groupadd perfsonar 2> /dev/null || :
+/usr/sbin/groupadd -r perfsonar 2> /dev/null || :
 /usr/sbin/useradd -g perfsonar -r -s /sbin/nologin -c "perfSONAR User" -d /tmp perfsonar 2> /dev/null || :
 
 %post common
