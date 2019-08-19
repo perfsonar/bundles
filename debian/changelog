@@ -1,3 +1,9 @@
+perfsonar-bundles (4.2.0) perfsonar-minor-staging; urgency=low
+
+  * New upstream version.
+
+ -- Andy Lake <andy@es.net>  Thu, 15 Aug 2019 01:10:29 +0000
+
 perfsonar-bundles (4.1.6) perfsonar-release; urgency=low
 
   * New upstream version.
