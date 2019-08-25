@@ -1,8 +1,8 @@
-perfsonar-bundles (4.3.0~a1.0-1) perfsonar-4.3-snapshot; urgency=low
+perfsonar-bundles (4.3.0~a1.0) perfsonar-4.3-snapshot; urgency=low
 
   * New upstream version.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sun, 25 Aug 2019 18:19:03 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sun, 25 Aug 2019 18:27:34 +0000
 
 perfsonar-bundles (4.2.0) perfsonar-minor-staging; urgency=low
 
