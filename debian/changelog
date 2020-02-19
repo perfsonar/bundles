@@ -1,8 +1,8 @@
-perfsonar-bundles (4.2.3~a0.0) perfsonar-4.2-snapshot; urgency=low
+perfsonar-bundles (4.2.3) perfsonar-4.2; urgency=low
 
   * New upstream version.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 17 Oct 2019 14:20:51 +0200
+ -- perfSONAR developers <debian@perfsonar.net>  Wed, 19 Feb 2020 15:37:33 +0000
 
 perfsonar-bundles (4.2.1) perfsonar-4.2; urgency=low
 
