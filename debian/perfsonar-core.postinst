@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for perfsonar-lsregistrationdaemon
+# postinst script for perfsonar-core
 #
 # see: dh_installdeb(1)
 
