@@ -46,7 +46,7 @@ Description: perfSONAR testpoint metapackage
 Package: perfsonar-core
 Architecture: all
 Depends: perfsonar-testpoint, esmond (>= 2.1),
- perfsonar-toolkit-compat-database, ${misc:Depends}
+ perfsonar-toolkit-esmond-utils, ${misc:Depends}
 Description: perfSONAR core metapackage
  perfSONAR combines a number of measurement tools and services.
  .
