@@ -1,10 +1,10 @@
-perfsonar-bundles (4.3.0~a1.0) perfsonar-4.3-snapshot; urgency=low
+perfsonar-bundles (4.3.0~b1.1) perfsonar-4.3; urgency=low
 
   * New upstream version.
   * Replacing perfsonar-toolkit-compat-database dependency with
     perfsonar-toolkit-esmond-utils
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 06 Aug 2020 14:56:43 +0000
+ -- perfSONAR developers <debian@perfsonar.net>  Tue, 29 Sep 2020 18:03:11 +0000
 
 perfsonar-bundles (4.2.3) perfsonar-4.2; urgency=low
 
