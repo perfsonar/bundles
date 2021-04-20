@@ -4,6 +4,18 @@ perfsonar-bundles (4.3.4) perfsonar-4.3; urgency=low
 
  -- perfSONAR developers <debian@perfsonar.net>  Wed, 17 Mar 2021 01:09:44 +0000
 
+perfsonar-bundles (4.3.3) perfsonar-4.3; urgency=low
+
+  * New upstream version.
+
+ -- perfSONAR developers <debian@perfsonar.net>  Tue, 02 Feb 2021 16:36:47 +0000
+
+perfsonar-bundles (4.3.2) perfsonar-4.3; urgency=low
+
+  * New upstream version.
+
+ -- perfSONAR developers <debian@perfsonar.net>  Wed, 18 Nov 2020 15:42:33 +0000
+
 perfsonar-bundles (4.3.0) perfsonar-4.3; urgency=low
 
   * Introducing pscheduler-bundle-full-nos3 for architectures not having
@@ -19,130 +31,6 @@ perfsonar-bundles (4.3.0~b1.1) perfsonar-4.3; urgency=low
 
  -- perfSONAR developers <debian@perfsonar.net>  Tue, 29 Sep 2020 18:03:11 +0000
 
-perfsonar-bundles (4.2.3) perfsonar-4.2; urgency=low
-
-  * New upstream version.
-
- -- perfSONAR developers <debian@perfsonar.net>  Wed, 19 Feb 2020 15:37:33 +0000
-
-perfsonar-bundles (4.2.1) perfsonar-4.2; urgency=low
-
-  * New upstream version.
-
- -- perfSONAR developers <debian@perfsonar.net>  Fri, 27 Sep 2019 13:16:45 -0400
-
-perfsonar-bundles (4.2.0) perfsonar-minor-staging; urgency=low
-
-  * New upstream version.
-  * Building on Stretch.
-
- -- Andy Lake <andy@es.net>  Thu, 15 Aug 2019 01:10:29 +0000
-
-perfsonar-bundles (4.1.6) perfsonar-release; urgency=low
-
-  * New upstream version.
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sun, 24 Feb 2019 16:42:17 +0000
-
-perfsonar-bundles (4.1.5) perfsonar-release; urgency=low
-
-  * New upstream version.
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 18 Dec 2018 20:14:40 +0000
-
-perfsonar-bundles (4.1.2) perfsonar-release; urgency=low
-
-  * New upstream version.
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 13 Sep 2018 08:06:24 +0200
-
-perfsonar-bundles (4.1.1) perfsonar-release; urgency=low
-
-  * New upstream version.
-  * Actually adding twamp-client and twamp-server to perfsonar-tools
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 24 Aug 2018 17:53:11 +0000
-
-perfsonar-bundles (4.1) perfsonar-release; urgency=low
-
-  * New upstream version.
-  * Adding twamp-client and twamp-server to perfsonar-tools
-  * Adding perfsonar-bwctl-compat package for BWCTL backward compatibility and
-    moving BWCTL dependencies to this new package.
-  * Replacing perfsonar-meshconfig packages by perfsonar-psconfig
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Mon, 13 Aug 2018 18:40:51 +0000
-
-perfsonar-bundles (4.0.2) perfsonar-jessie-release; urgency=low
-
-  * New upstream version.
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 01 Nov 2017 18:32:00 +0000
-
-perfsonar-bundles (4.0.1) perfsonar-jessie-release; urgency=low
-
-  * New upstream version.
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 15 Aug 2017 12:37:34 +0100
-
-perfsonar-bundles (4.0) perfsonar-jessie-release; urgency=low
-
-  * Adding pscheduler-core to the perfsonar-tools bundle.
-  * Adding pscheduler-bundle-full to the perfsonar-testpoint bundle.
-  * Removing perfsonar-regulartesting from the perfsonar-testpoint bundle.
-  * Removing NDT.
-  * Removal of all -beta metion from 3.5 packages.
-
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 13 Apr 2017 17:35:15 +0000
-
-perfsonar-bundles (3.5.1) perfsonar-jessie-release; urgency=low
-
-  * Prepare for jessie.
-  * Adding perfsonar-lsregistrationdaemon to perfsonar-centralmanagement bundle
-
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Fri, 04 Mar 2016 15:27:30 +0100
-
-perfsonar-bundles (3.5-1) perfsonar-wheezy-release; urgency=low
-
-  * Renaming perfsonar-endpoint bundle to perfsonar-testpoint
-  * Adding perfsonar-meshconfig-agent to perfsonr-testpoint
-  * Generating /var/lib/perfsonar/bundles/bundle_type
-  * Generating /var/lib/perfsonar/bundles/version
-
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sat, 26 Sep 2015 15:15:40 +0000
-
-perfsonar-bundles (3.4.2) perfsonar-wheezy-staging; urgency=low
-
-  * Adding perfsonar-toolkit-security and perfsonar-toolkit-sysctl to
-    perfsonar-endpoint bundle.
-  * Adding perfsonar-oppd-bwctl and perfsonar-oppd-owamp to the
-    perfsonar-endpoint bundle.
-
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Thu, 11 Jun 2015 22:04:43 +0000
-
-perfsonar-bundles (3.4.1.4) unstable; urgency=low
-
-  * Add meshconfig dependencies for perfsonar-core bundle.
-
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 30 Mar 2015 13:55:54 +0200
-
-perfsonar-bundles (3.4.1.3) unstable; urgency=low
-
-  * Update dependencies for perfsonar-tools bundle.
-
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 06 Mar 2015 16:51:48 +0100
-
-perfsonar-bundles (3.4.1.2) unstable; urgency=low
-
-  * Create endpoint and core bundles.
-
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 20 Feb 2015 11:57:35 +0100
-
-perfsonar-bundles (3.4.1.1) unstable; urgency=low
-
-  * Initial Release.
-
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Wed, 03 Dec 2014 09:18:25 +0100
 perfsonar-bundles (4.2.4) perfsonar-4.2; urgency=low
 
   * New upstream version.
