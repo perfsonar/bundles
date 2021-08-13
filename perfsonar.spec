@@ -71,10 +71,8 @@ Perform regularly scheduled perfSONAR measurements and store the results remotel
 Summary:                perfSONAR scheduled testing and storage tools
 Group:                  Applications/Communications
 Requires:               perfsonar-testpoint
-Requires:               perfsonar-toolkit-esmond-utils
 Requires:               perfsonar-archive
 Requires:               perfsonar-toolkit-install
-Requires(post):         perfsonar-toolkit-esmond-utils
 Obsoletes:              perfSONAR-Bundles-Core
 Provides:               perfSONAR-Bundles-Core
 
@@ -90,7 +88,6 @@ Requires:       libperfsonar-perl
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-psconfig-maddash
 Requires:       perfsonar-psconfig-publisher
-Requires:       perfsonar-toolkit-esmond-utils
 Requires:       maddash
 Requires:       perfsonar-archive
 Obsoletes:      perfSONAR-Bundles-CentralManagement
