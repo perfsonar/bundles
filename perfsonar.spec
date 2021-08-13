@@ -72,7 +72,7 @@ Summary:                perfSONAR scheduled testing and storage tools
 Group:                  Applications/Communications
 Requires:               perfsonar-testpoint
 Requires:               perfsonar-toolkit-esmond-utils
-Requires:               esmond >= 2.1
+Requires:               perfsonar-archive
 Requires:               perfsonar-toolkit-install
 Requires(post):         perfsonar-toolkit-esmond-utils
 Obsoletes:              perfSONAR-Bundles-Core
@@ -92,7 +92,7 @@ Requires:       perfsonar-psconfig-maddash
 Requires:       perfsonar-psconfig-publisher
 Requires:       perfsonar-toolkit-esmond-utils
 Requires:       maddash
-Requires:       esmond >= 2.1
+Requires:       perfsonar-archive
 Obsoletes:      perfSONAR-Bundles-CentralManagement
 Provides:       perfSONAR-Bundles-CentralManagement
 
@@ -159,7 +159,6 @@ chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
 #configure database
 if [ $1 -eq 1 ] ; then
-    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
     /sbin/service httpd restart &>/dev/null || :
 fi
 
@@ -168,9 +167,6 @@ echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
-if [ $1 -eq 1 ] ; then
-    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
-fi
 
 %files tools
 %defattr(0644,perfsonar,perfsonar,0755)
