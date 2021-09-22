@@ -2,10 +2,9 @@ Source: perfsonar-bundles
 Section: net
 Priority: optional
 Maintainer: perfSONAR developers <debian@perfsonar.net>
-Uploaders: Antoine Delvaux <antoine.delvaux@man.poznan.pl>,
- Valentin Vidic <Valentin.Vidic@CARNet.hr>
-Build-Depends: debhelper (>= 8.0.0)
-Standards-Version: 3.9.3
+Uploaders: Antoine Delvaux <antoine.delvaux@man.poznan.pl>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 3.9.8
 Homepage: http://www.perfsonar.net/
 Vcs-Git: https://github.com/perfsonar/bundles.git
 Vcs-Browser: https://github.com/perfsonar/bundles
