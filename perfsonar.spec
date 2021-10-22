@@ -164,6 +164,8 @@ echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
+#run logstash on all ip addresses to receive results from external testpoints
+sed -i 's/host => "localhost"/host => "0.0.0.0"/g' /usr/lib/perfsonar/logstash/pipeline/01-inputs.conf
 
 %files tools
 %defattr(0644,perfsonar,perfsonar,0755)
@@ -184,6 +186,8 @@ chmod 644 /var/lib/perfsonar/bundles/bundle_version
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
+* Fri Oct 15 2021 daniel.neto@rnp.br
+- Add logstash configuration
 * Mon Jul 14 2015 andy@es.net
 - common bundle
 * Mon Jul 06 2015 adelvaux@man.poznan.pl
