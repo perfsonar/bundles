@@ -73,6 +73,7 @@ Group:                  Applications/Communications
 Requires:               perfsonar-testpoint
 Requires:               perfsonar-archive
 Requires:               perfsonar-toolkit-install
+Requires:               perfsonar-toolkit-archive-utils
 Obsoletes:              perfSONAR-Bundles-Core
 Provides:               perfSONAR-Bundles-Core
 
