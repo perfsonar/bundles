@@ -165,8 +165,11 @@ echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
-#run logstash on all ip addresses to receive results from external testpoints
-sed -i 's/host => "localhost"/host => "0.0.0.0"/g' /usr/lib/perfsonar/logstash/pipeline/01-inputs.conf
+if [ $1 -eq 1 ] ; then
+    #run logstash on all ip addresses to receive results from external testpoints
+    sed -i 's/host => "localhost"/host => "0.0.0.0"/g' /usr/lib/perfsonar/logstash/pipeline/01-inputs.conf
+    systemctl restart logstash.service
+fi
 
 %files tools
 %defattr(0644,perfsonar,perfsonar,0755)
