@@ -5,5 +5,5 @@ This repository contains the files required to build perfSONAR package bundles s
 ## Building the RPM
 
 ```bash
-rpmbuild -ba perfSONAR_PS-Bundles.spec
+rpmbuild -ba perfsonar.spec
 ```

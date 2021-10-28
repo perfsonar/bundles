@@ -71,10 +71,9 @@ Perform regularly scheduled perfSONAR measurements and store the results remotel
 Summary:                perfSONAR scheduled testing and storage tools
 Group:                  Applications/Communications
 Requires:               perfsonar-testpoint
-Requires:               perfsonar-toolkit-esmond-utils
-Requires:               esmond >= 2.1
+Requires:               perfsonar-archive
 Requires:               perfsonar-toolkit-install
-Requires(post):         perfsonar-toolkit-esmond-utils
+Requires:               perfsonar-toolkit-archive-utils
 Obsoletes:              perfSONAR-Bundles-Core
 Provides:               perfSONAR-Bundles-Core
 
@@ -90,9 +89,8 @@ Requires:       libperfsonar-perl
 Requires:       perfsonar-lsregistrationdaemon
 Requires:       perfsonar-psconfig-maddash
 Requires:       perfsonar-psconfig-publisher
-Requires:       perfsonar-toolkit-esmond-utils
 Requires:       maddash
-Requires:       esmond >= 2.1
+Requires:       perfsonar-archive
 Obsoletes:      perfSONAR-Bundles-CentralManagement
 Provides:       perfSONAR-Bundles-CentralManagement
 
@@ -159,7 +157,6 @@ chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
 #configure database
 if [ $1 -eq 1 ] ; then
-    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
     /sbin/service httpd restart &>/dev/null || :
 fi
 
@@ -169,7 +166,9 @@ echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
 chmod 644 /var/lib/perfsonar/bundles/bundle_type
 chmod 644 /var/lib/perfsonar/bundles/bundle_version
 if [ $1 -eq 1 ] ; then
-    /usr/lib/perfsonar/scripts/system_environment/configure_esmond new
+    #run logstash on all ip addresses to receive results from external testpoints
+    sed -i 's/host => "localhost"/host => "0.0.0.0"/g' /usr/lib/perfsonar/logstash/pipeline/01-inputs.conf
+    systemctl restart logstash.service
 fi
 
 %files tools
@@ -191,6 +190,8 @@ fi
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
+* Fri Oct 15 2021 daniel.neto@rnp.br
+- Add logstash configuration
 * Mon Jul 14 2015 andy@es.net
 - common bundle
 * Mon Jul 06 2015 adelvaux@man.poznan.pl
