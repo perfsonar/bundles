@@ -1,3 +1,9 @@
+perfsonar-bundles (4.4.2) perfsonar-4.4; urgency=low
+
+  * New upstream version.
+
+ -- perfSONAR developers <debian@perfsonar.net>  Wed, 12 Jan 2022 13:51:03 -0500
+
 perfsonar-bundles (4.4.1) perfsonar-4.4; urgency=low
 
   * New upstream version.
