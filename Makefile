@@ -1,11 +1,39 @@
-# Makefile for perfSONAR bundles
 #
-PACKAGE=perfsonar-bundles
-DC_CMD_BASE=docker-compose
-DC_CMD=${DC_CMD_BASE} -p ${PACKAGE}
+# Makefile for unibuild top-level directory
+#
 
-centos7:
-	mkdir -p ./artifacts/centos7
-	${DC_CMD} -f docker-compose.yml up --build --no-start centos7
-	docker cp ${PACKAGE}_centos7_1:/root/rpmbuild/SRPMS ./artifacts/centos7/SRPMS
-	docker cp ${PACKAGE}_centos7_1:/root/rpmbuild/RPMS/noarch ./artifacts/centos7/RPMS
+default: build
+
+
+BUILD_LOG=unibuild-log
+
+ifdef START
+UNIBUILD_OPTS += --start $(START)
+endif
+ifdef STOP
+UNIBUILD_OPTS += --stop $(STOP)
+endif
+
+# The shell command below does the equivalent of BASH's pipefail
+# within the confines of POSIX.
+# Source: https://unix.stackexchange.com/a/70675/15184
+build:
+	rm -rf $(BUILD_LOG)
+	((( \
+	(unibuild build $(UNIBUILD_OPTS); echo $$? >&3) \
+	| tee $(BUILD_LOG) >&4) 3>&1) \
+	| (read XS; exit $$XS) \
+	) 4>&1
+TO_CLEAN += $(BUILD_LOG)
+
+
+uninstall:
+	unibuild make --reverse $@
+
+fresh: uninstall build
+
+clean:
+	unibuild make $(UNIBUILD_OPTS) clean
+	unibuild clean
+	rm -rf $(TO_CLEAN)
+	find . -name '*~' | xargs rm -f

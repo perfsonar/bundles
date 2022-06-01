@@ -14,18 +14,6 @@ BuildArch:      noarch
 %description
 Various bundles of the perfSONAR Software
 
-%package common
-Summary:        Package common to all perfSONAR tools
-Group:          Applications/Communications
-Requires:       coreutils
-Requires(pre):  coreutils
-Requires(post): coreutils
-Obsoletes:      perfSONAR-Bundles-common
-Provides:       perfSONAR-Bundles-common
-
-%description common
-Package common to all perfsonar tools. Creates users, groups, logging directories, etc.
-
 %package tools
 Summary:        perfSONAR active measurement tools
 Group:          Applications/Communications
@@ -80,46 +68,6 @@ Provides:               perfSONAR-Bundles-Core
 %description core
 Perform regularly scheduled perfSONAR measurements and store the results locally.
 
-%package centralmanagement
-Summary:        Centrally manage perfSONAR nodes
-Group:          Applications/Communications
-Requires:       libperfsonar-esmond-perl
-Requires:       libperfsonar-sls-perl
-Requires:       libperfsonar-perl 
-Requires:       perfsonar-lsregistrationdaemon
-Requires:       perfsonar-psconfig-maddash
-Requires:       perfsonar-psconfig-publisher
-Requires:       maddash
-Requires:       perfsonar-archive
-Obsoletes:      perfSONAR-Bundles-CentralManagement
-Provides:       perfSONAR-Bundles-CentralManagement
-
-%description centralmanagement
-Manage, store and visualize results from multiple nodes running perfSONAR measurements. 
-
-%package bwctl-compat
-Summary:                perfSONAR BWCTL backward compatibility package
-Group:                  Applications/Communications
-Requires:               bwctl
-Requires:               pscheduler-tool-bwctliperf2
-Requires:               pscheduler-tool-bwctliperf3
-Requires:               pscheduler-tool-bwctlping
-Requires:               pscheduler-tool-bwctltracepath
-Requires:               pscheduler-tool-bwctltraceroute
-
-%description bwctl-compat
-Installs bwctl/client server and related pScheduler plug-ins for backward compatibility 
-with pre-4.0 hosts or those that block the pScheduler port. 
-
-%pre common
-/usr/sbin/groupadd -r perfsonar 2> /dev/null || :
-/usr/sbin/useradd -g perfsonar -r -s /sbin/nologin -c "perfSONAR User" -d /tmp perfsonar 2> /dev/null || :
-
-%post common
-mkdir -p /var/log/perfsonar
-chown perfsonar:perfsonar /var/log/perfsonar
-mkdir -p /var/lib/perfsonar/bundles
-
 %post testpoint
 echo "perfsonar-testpoint" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
@@ -160,17 +108,6 @@ if [ $1 -eq 1 ] ; then
     /sbin/service httpd restart &>/dev/null || :
 fi
 
-%post centralmanagement
-echo "perfsonar-centralmanagement" > /var/lib/perfsonar/bundles/bundle_type
-echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
-chmod 644 /var/lib/perfsonar/bundles/bundle_type
-chmod 644 /var/lib/perfsonar/bundles/bundle_version
-if [ $1 -eq 1 ] ; then
-    #run logstash on all ip addresses to receive results from external testpoints
-    sed -i 's/host => "localhost"/host => "0.0.0.0"/g' /usr/lib/perfsonar/logstash/pipeline/01-inputs.conf
-    systemctl restart logstash.service
-fi
-
 %files tools
 %defattr(0644,perfsonar,perfsonar,0755)
 
@@ -178,15 +115,6 @@ fi
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %files core
-%defattr(0644,perfsonar,perfsonar,0755)
-
-%files centralmanagement
-%defattr(0644,perfsonar,perfsonar,0755)
-
-%files common
-%defattr(0644,perfsonar,perfsonar,0755)
-
-%files bwctl-compat
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog

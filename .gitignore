@@ -1,1 +1,16 @@
-artifacts/
+#Ignore mac hidden file
+.DS_Store
+#Ignore vscode
+.vscode/
+# Ignore quilt cache file
+.pc/
+.*.swn
+.*.swo
+.*.swp
+cover_db/
+# Ignore vagrant files
+.vagrant
+# Ignore unibuild files 
+unibuild-log
+unibuild-work/
+unibuild-repo/
