@@ -1,6 +1,6 @@
 perfsonar-bundles (5.0.0~b1.1) perfsonar-5.0; urgency=low
 
-  * New upstream version.
+  * Depending on perfsonar-archive instead of esmond.
   * Building on buster.
 
  -- perfSONAR developers <debian@perfsonar.net>  Thu, 26 May 2022 11:22:13 -0400
