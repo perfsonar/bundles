@@ -44,8 +44,8 @@ Description: perfSONAR testpoint metapackage
 
 Package: perfsonar-core
 Architecture: all
-Depends: perfsonar-testpoint, esmond (>= 2.1),
- perfsonar-toolkit-esmond-utils, ${misc:Depends}
+Depends: perfsonar-testpoint, perfsonar-archive,
+ perfsonar-toolkit-archive-utils, ${misc:Depends}
 Description: perfSONAR core metapackage
  perfSONAR combines a number of measurement tools and services.
  .
@@ -59,7 +59,7 @@ Description: perfSONAR core metapackage
 
 Package: perfsonar-centralmanagement
 Architecture: all
-Depends: perfsonar-lsregistrationdaemon, maddash, esmond (>= 2.1),
+Depends: perfsonar-lsregistrationdaemon, maddash, perfsonar-archive,
  perfsonar-psconfig-maddash, perfsonar-psconfig-publisher, ${misc:Depends}
 Description: perfSONAR central management metapackage
  perfSONAR combines a number of measurement tools and services.
