@@ -42,41 +42,18 @@ Description: perfSONAR testpoint metapackage
  This type of installation also contains the perfsonar-tools
  package so that you may run one-time tests to other servers.
 
-Package: perfsonar-core
-Architecture: all
-Depends: perfsonar-testpoint, perfsonar-archive,
- perfsonar-toolkit-archive-utils, ${misc:Depends}
-Description: perfSONAR core metapackage
- perfSONAR combines a number of measurement tools and services.
- .
- perfSONAR core metapackage installs owamp server
- along with tools to publish the location of these services to the
- perfSONAR-PS Simple Lookup Service, run regular tests and
- a Measurement Archive for storing results.
- .
- This type of installation also contains the perfsonar-testpoint
- package so that you may run one-time tests to other servers.
+#Package: perfsonar-core
+#Architecture: all
+#Depends: perfsonar-testpoint, perfsonar-archive,
+# perfsonar-toolkit-archive-utils, ${misc:Depends}
+#Description: perfSONAR core metapackage
+# perfSONAR combines a number of measurement tools and services.
+# .
+# perfSONAR core metapackage installs owamp server
+# along with tools to publish the location of these services to the
+# perfSONAR-PS Simple Lookup Service, run regular tests and
+# a Measurement Archive for storing results.
+# .
+# This type of installation also contains the perfsonar-testpoint
+# package so that you may run one-time tests to other servers.
 
-Package: perfsonar-centralmanagement
-Architecture: all
-Depends: perfsonar-lsregistrationdaemon, maddash, perfsonar-archive,
- perfsonar-psconfig-maddash, perfsonar-psconfig-publisher, ${misc:Depends}
-Description: perfSONAR central management metapackage
- perfSONAR combines a number of measurement tools and services.
- .
- perfSONAR central metapackage installs Mesh configuration tools,
- MaDDash framework for scheduling service checks and displaying results,
- and a Measurement Archive for storing results.
-
-Package: perfsonar-bwctl-compat
-Architecture: all
-Depends: bwctl-client (>= 1.6.0), bwctl-server (>= 1.6.0),
- pscheduler-tool-bwctliperf2, pscheduler-tool-bwctliperf3,
- pscheduler-tool-bwctlping, pscheduler-tool-bwctltracepath,
- pscheduler-tool-bwctltraceroute, ${misc:Depends}
-Description: perfSONAR BWCTL backward compatibility package
- perfSONAR combines a number of measurement tools and services.
- .
- perfSONAR bwctl metapackage installs bwctl server and related
- pScheduler plug-ins for backward compatibility with pre-4.0
- hosts or those that block the pScheduler port.
