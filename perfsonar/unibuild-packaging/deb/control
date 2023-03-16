@@ -42,18 +42,18 @@ Description: perfSONAR testpoint metapackage
  This type of installation also contains the perfsonar-tools
  package so that you may run one-time tests to other servers.
 
-#Package: perfsonar-core
-#Architecture: all
-#Depends: perfsonar-testpoint, perfsonar-archive,
-# perfsonar-toolkit-archive-utils, ${misc:Depends}
-#Description: perfSONAR core metapackage
-# perfSONAR combines a number of measurement tools and services.
-# .
-# perfSONAR core metapackage installs owamp server
-# along with tools to publish the location of these services to the
-# perfSONAR-PS Simple Lookup Service, run regular tests and
-# a Measurement Archive for storing results.
-# .
-# This type of installation also contains the perfsonar-testpoint
-# package so that you may run one-time tests to other servers.
+Package: perfsonar-core
+Architecture: all
+Depends: perfsonar-testpoint, perfsonar-archive,
+ perfsonar-toolkit-archive-utils, ${misc:Depends}
+Description: perfSONAR core metapackage
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR core metapackage installs owamp server
+ along with tools to publish the location of these services to the
+ perfSONAR-PS Simple Lookup Service, run regular tests and
+ a Measurement Archive for storing results.
+ .
+ This type of installation also contains the perfsonar-testpoint
+ package so that you may run one-time tests to other servers.
 
