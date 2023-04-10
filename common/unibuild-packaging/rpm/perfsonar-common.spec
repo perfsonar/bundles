@@ -1,5 +1,5 @@
 %define perfsonar_auto_version 5.0.0
-%define perfsonar_auto_relnum 0.b2.3
+%define perfsonar_auto_relnum 0.b2.8
 
 Version:        %{perfsonar_auto_version}
 Name:           perfsonar-common
