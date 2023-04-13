@@ -1,4 +1,4 @@
-perfsonar-bundles (5.0.0) perfsonar-5.0; urgency=low
+perfsonar-bundles (5.0.0.1) perfsonar-5.0; urgency=low
 
   * Depending on perfsonar-archive instead of esmond.
   * Building on buster.
@@ -6,7 +6,7 @@ perfsonar-bundles (5.0.0) perfsonar-5.0; urgency=low
   * Removing the perfsonar-centralmanagement bundle that is redundant with the
     perfsonar-archive.
 
- -- perfSONAR developers <debian@perfsonar.net>  Thu, 13 Apr 2023 17:05:58 -0400
+ -- perfSONAR developers <debian@perfsonar.net>  Thu, 13 Apr 2023 19:21:59 -0400
 
 perfsonar-bundles (4.5.0~a1.0) perfsonar-4.5-snapshot; urgency=low
 
