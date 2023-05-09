@@ -29,7 +29,12 @@ Requires:       iperf3
 Requires:       traceroute
 Requires:       iputils
 Requires:       paris-traceroute
+%if 0%{?el7}
 Requires:       ntp
+%else
+Requires:       chrony
+%endif
+
 Obsoletes:      perfSONAR-Bundles-Tools
 Provides:       perfSONAR-Bundles-Tools
 
@@ -84,20 +89,12 @@ cp -n %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
 
 
 #Restart pscheduler daemons to make sure they got all tests, tools, and archivers
-%if 0%{?el7}
 systemctl daemon-reload &>/dev/null || :
 systemctl restart httpd &>/dev/null || :
 systemctl restart pscheduler-archiver &>/dev/null || :
 systemctl restart pscheduler-runner &>/dev/null || :
 systemctl restart pscheduler-scheduler &>/dev/null || :
 systemctl restart pscheduler-ticker &>/dev/null || :
-%else
-/sbin/service httpd restart &>/dev/null || :
-/sbin/service pscheduler-archiver restart &>/dev/null || :
-/sbin/service pscheduler-runner restart &>/dev/null || :
-/sbin/service pscheduler-scheduler restart &>/dev/null || :
-/sbin/service pscheduler-ticker restart &>/dev/null || :
-%endif
 
 %post core
 echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
