@@ -54,6 +54,7 @@ Requires:       perfsonar-toolkit-install
 Requires:       perfsonar-psconfig-pscheduler
 Requires:       pscheduler-bundle-full
 Requires:       perfsonar-toolkit-web-services
+Requires:       perfsonar-host-metrics
 Requires(post): perfsonar-toolkit-install
 Obsoletes:      perfSONAR-Bundles-TestPoint
 Provides:       perfSONAR-Bundles-TestPoint
