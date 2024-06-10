@@ -28,7 +28,7 @@ Package: perfsonar-testpoint
 Architecture: all
 Depends: perfsonar-tools, perfsonar-lsregistrationdaemon, 
  pscheduler-bundle-full | pscheduler-bundle-full-nos3, perfsonar-toolkit-install,
- perfsonar-toolkit-web-services, perfsonar-psconfig-pscheduler, ${misc:Depends}
+ perfsonar-toolkit-web-services, perfsonar-psconfig-pscheduler, perfsonar-host-metrics, ${misc:Depends}
 Description: perfSONAR testpoint metapackage
  perfSONAR combines a number of measurement tools and services.
  .

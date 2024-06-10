@@ -1,4 +1,4 @@
-%define perfsonar_auto_version 5.0.8
+%define perfsonar_auto_version 5.1.0
 %define perfsonar_auto_relnum 1
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
@@ -54,6 +54,7 @@ Requires:       perfsonar-toolkit-install
 Requires:       perfsonar-psconfig-pscheduler
 Requires:       pscheduler-bundle-full
 Requires:       perfsonar-toolkit-web-services
+Requires:       perfsonar-host-metrics
 Requires(post): perfsonar-toolkit-install
 Obsoletes:      perfSONAR-Bundles-TestPoint
 Provides:       perfSONAR-Bundles-TestPoint
