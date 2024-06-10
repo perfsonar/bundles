@@ -1,8 +1,8 @@
-perfsonar-bundles (5.1.0~b2.7) perfsonar-5.1; urgency=low
+perfsonar-bundles (5.1.0) perfsonar-5.1; urgency=low
 
   * New upstream version.
 
- -- perfSONAR developers <debian@perfsonar.net>  Thu, 06 Jun 2024 11:39:59 -0400 
+ -- perfSONAR developers <debian@perfsonar.net>  Mon, 10 Jun 2024 10:43:25 +0200 
 
 perfsonar-bundles (5.0.8) perfsonar-5.0; urgency=low
 
