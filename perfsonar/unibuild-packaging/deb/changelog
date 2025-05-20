@@ -1,9 +1,9 @@
-perfsonar-bundles (5.2.0~3.b1) perfsonar-5.2; urgency=low
+perfsonar-bundles (5.2.0~b1.3) perfsonar-5.2; urgency=low
 
   * New upstream version.
   * Depends to iperf3 or iperf3-ssl3
 
- -- perfSONAR developers <debian@perfsonar.net>  Tue, 20 May 2025 12:10:44 -0400 
+ -- perfSONAR developers <debian@perfsonar.net>  Tue, 20 May 2025 12:19:37 -0400 
 
 perfsonar-bundles (5.1.4) perfsonar-5.1; urgency=low
 
