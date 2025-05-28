@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/perfsonar/bundles
 Package: perfsonar-tools
 Architecture: all
 Depends: pscheduler-core,
- owamp-client (>= 3.5.0), owamp-server (>= 3.5.0), nuttcp, iperf, iperf3,
+ owamp-client (>= 3.5.0), owamp-server (>= 3.5.0), nuttcp, iperf, iperf3 | iperf3-ssl3,
  twamp-client, twamp-server, iputils-ping, iputils-tracepath, traceroute,
  paris-traceroute, perfsonar-common, ${misc:Depends}
 Description: perfSONAR tools metapackage
