@@ -1,5 +1,5 @@
 %define perfsonar_auto_version 5.2.1
-%define perfsonar_auto_relnum 1
+%define perfsonar_auto_relnum 2
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
 Version:        %{perfsonar_auto_version}
@@ -97,6 +97,11 @@ systemctl restart pscheduler-runner &>/dev/null || :
 systemctl restart pscheduler-scheduler &>/dev/null || :
 systemctl restart pscheduler-ticker &>/dev/null || :
 
+%preun testpoint
+# remove symlinks to avoid breaking pam_limits.so and httpd.service
+rm -f /etc/security/limits.d/perfsonar.conf
+rm -f /etc/systemd/system/httpd.service.d/perfsonar_ulimit_apache.conf
+
 %post core
 echo "perfsonar-core" > /var/lib/perfsonar/bundles/bundle_type
 echo "%{version}-%{release}" > /var/lib/perfsonar/bundles/bundle_version
@@ -117,6 +122,8 @@ fi
 %defattr(0644,perfsonar,perfsonar,0755)
 
 %changelog
+* Tue Jul 1 2025 John W. O'Brien <obrienjw@upenn.edu> - 5.2.1-2
+- Remove limits symlinks upon uninstall
 * Fri Oct 15 2021 daniel.neto@rnp.br
 - Add logstash configuration
 * Mon Jul 14 2015 andy@es.net
