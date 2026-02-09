@@ -1,4 +1,4 @@
-%define perfsonar_auto_version 5.2.3
+%define perfsonar_auto_version 5.2.4
 %define perfsonar_auto_relnum 1
 %define toolkit_config_base /etc/perfsonar/toolkit/default_service_configs
 
