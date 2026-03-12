@@ -30,7 +30,8 @@ case "$1" in
     chmod 644 /var/lib/perfsonar/bundles/bundle_version
 
     # Install pscheduler.limits
-    cp -n /etc/perfsonar/toolkit/default_service_configs/pscheduler_limits.conf /etc/pscheduler/limits.conf
+    [ -e /etc/pscheduler/limits.conf ] \
+        || cp -f /etc/perfsonar/toolkit/default_service_configs/pscheduler_limits.conf /etc/pscheduler/limits.conf
 
     ;;
 

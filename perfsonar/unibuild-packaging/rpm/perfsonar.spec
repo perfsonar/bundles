@@ -86,7 +86,8 @@ mkdir -p /etc/systemd/system/httpd.service.d
 ln -sf /etc/perfsonar/toolkit/perfsonar_ulimit_apache.conf /etc/systemd/system/httpd.service.d/
 
 #copy over default limits if file does not already exist
-cp -n %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
+[ -e /etc/pscheduler/limits.conf ] \
+    || cp -f %{toolkit_config_base}/pscheduler_limits.conf /etc/pscheduler/limits.conf
 
 
 #Restart pscheduler daemons to make sure they got all tests, tools, and archivers
