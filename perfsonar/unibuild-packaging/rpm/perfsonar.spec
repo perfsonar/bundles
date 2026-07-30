@@ -39,10 +39,10 @@ Obsoletes:      perfSONAR-Bundles-Tools
 Provides:       perfSONAR-Bundles-Tools
 
 %description tools
-The basic command-line measurement tools used by perfSONAR for on-demand tests. 
+The basic command-line measurement tools used by perfSONAR for on-demand tests.
 
-%package testpoint
-Summary:        perfSONAR scheduled testing tools
+%package testpoint-shared
+Summary:        perfSONAR testpoint that can co-exist with other web applications.
 Group:          Applications/Communications
 Requires:       libperfsonar-pscheduler-perl
 Requires:       libperfsonar-toolkit-perl 
@@ -59,8 +59,21 @@ Requires(post): perfsonar-toolkit-install
 Obsoletes:      perfSONAR-Bundles-TestPoint
 Provides:       perfSONAR-Bundles-TestPoint
 
+%description testpoint-shared
+perfSONAR testpoint that can co-exist with other web applications.
+Install this when the web server's front page should be left alone.
+
+
+%package testpoint
+Summary:        perfSONAR testpoint
+Group:          Applications/Communications
+Requires:       testpoint-shared
+Requires:       perfsonar-web-front-page
+
 %description testpoint
-Perform regularly scheduled perfSONAR measurements and store the results remotely.
+perfSONAR testpoint
+
+
 
 %package core
 Summary:                perfSONAR scheduled testing and storage tools
