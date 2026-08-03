@@ -24,11 +24,28 @@ Description: perfSONAR tools metapackage
  pscheduler command-line clients so that you may run one-time tests
  to other servers.
 
-Package: perfsonar-testpoint
+Package: perfsonar-testpoint-shared
 Architecture: all
 Depends: perfsonar-tools, perfsonar-lsregistrationdaemon, 
  pscheduler-bundle-full | pscheduler-bundle-full-nos3, perfsonar-toolkit-install,
  perfsonar-toolkit-web-services, perfsonar-psconfig-pscheduler, perfsonar-host-metrics, ${misc:Depends}
+Description: perfSONAR testpoint metapackage for shared systems
+ perfSONAR combines a number of measurement tools and services.
+ .
+ perfSONAR testpoint-shared metapackage installs owamp server
+ along with tools to publish the location of these services to the
+ perfSONAR Simple Lookup Service and run regular tests. It also
+ contains the mesh-config agent so that you can easily make your
+ testpoint participate in a testing mesh.
+ .
+ This type of installation also contains the perfsonar-tools
+ package so that you may run one-time tests to other servers and
+ does not install a web server front page so it can coexist with
+ other, non-perfSONAR applications.
+
+Package: perfsonar-testpoint
+Architecture: all
+Depends: perfsonar-tespoint-shared, perfsonar-web-front-page
 Description: perfSONAR testpoint metapackage
  perfSONAR combines a number of measurement tools and services.
  .
@@ -40,6 +57,9 @@ Description: perfSONAR testpoint metapackage
  .
  This type of installation also contains the perfsonar-tools
  package so that you may run one-time tests to other servers.
+ .
+ Install this package on systems where perfSONAR does not
+ share use of the HTTP server with other applications.
 
 Package: perfsonar-core
 Architecture: all
