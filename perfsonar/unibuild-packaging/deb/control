@@ -45,7 +45,7 @@ Description: perfSONAR testpoint metapackage for shared systems
 
 Package: perfsonar-testpoint
 Architecture: all
-Depends: perfsonar-tespoint-shared, perfsonar-web-front-page
+Depends: perfsonar-testpoint-shared, perfsonar-web-front-page
 Description: perfSONAR testpoint metapackage
  perfSONAR combines a number of measurement tools and services.
  .
